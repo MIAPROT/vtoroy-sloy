@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="MAX">
+  <defs>
+    <linearGradient id="max-bg" x1="80" y1="48" x2="432" y2="464" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#5B8FFF"/>
+      <stop offset="50%" stop-color="#6E5CF5"/>
+      <stop offset="100%" stop-color="#A855F7"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="108" fill="url(#max-bg)"/>
+  <text x="256" y="328" text-anchor="middle" fill="#ffffff" font-family="Arial Black, Montserrat, Helvetica, sans-serif" font-size="148" font-weight="900" letter-spacing="-6">MAX</text>
+</svg>

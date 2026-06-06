@@ -1,0 +1,7 @@
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.heic
+*.mov
+*.mp4
+node_modules/

@@ -1,0 +1,2046 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="второй слой — ремонт коммерческих помещений в Санкт-Петербурге. Фиксированная смета, сроки в договоре.">
+  <title>второй слой — Ремонт коммерческих помещений | Санкт-Петербург</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f5f5;
+      --bg-white: #ffffff;
+      --bg-soft: #efefef;
+      --text: #1a1a1a;
+      --text-secondary: #6b6b6b;
+      --accent: #ff5500;
+      --accent-hover: #e64d00;
+      --accent-soft: rgba(255, 85, 0, 0.1);
+      --border: #e5e5e5;
+      --header-h: 84px;
+      --container: min(1200px, 94vw);
+      --radius-md: 20px;
+      --radius-lg: 28px;
+      --radius-xl: 32px;
+      --radius-pill: 50px;
+      --shadow: 0 8px 32px rgba(0,0,0,0.08);
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+    img { max-width: 100%; display: block; }
+    .media img, .hero-panel__img, .testimonial__avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button, input { font-family: inherit; }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      line-height: 1.15;
+    }
+    .section-title {
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 640px;
+      margin-bottom: 40px;
+    }
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    section { padding: 80px 0; }
+    .section--white { background: var(--bg-white); }
+    .section--soft { background: var(--bg-soft); }
+
+    .dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+    .dot--sq { border-radius: 2px; width: 7px; height: 7px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px 26px 14px 22px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      border-radius: var(--radius-pill);
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .btn::after {
+      content: '';
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .btn--primary { background: var(--accent); color: #fff; }
+    .btn--primary::after { background: #fff; }
+    .btn--primary:hover { background: var(--accent-hover); box-shadow: 0 10px 28px rgba(255,85,0,0.35); transform: translateY(-2px); }
+    .btn--outline {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn--outline::after { background: var(--accent); }
+    .btn--outline:hover { border-color: var(--accent); }
+    .btn--ghost-white {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.35);
+      backdrop-filter: blur(8px);
+    }
+    .btn--ghost-white::after { background: #fff; }
+    .btn--lg { padding: 17px 30px; font-size: 0.95rem; }
+    .btn--full { width: 100%; }
+    .btn--no-dot::after { display: none; }
+
+    .link-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-top: 14px;
+      transition: color var(--transition);
+    }
+    .link-more:hover { color: var(--accent); }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      height: var(--header-h);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: box-shadow var(--transition), border-color var(--transition);
+    }
+    .header--scrolled {
+      border-bottom-color: var(--border);
+      box-shadow: var(--shadow);
+    }
+    .header__inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      height: 100%;
+      gap: 16px;
+    }
+    /* Logo — текст + 2 кружка */
+    .logo__mark {
+      position: relative;
+      display: inline-grid;
+      align-items: center;
+      min-height: 44px;
+      padding-left: 18px;
+      padding-right: 28px;
+    }
+    .logo__circle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .logo__circle--yellow {
+      width: 22px;
+      height: 22px;
+      background: #f9e104;
+      left: 0;
+      top: 2px;
+      z-index: 0;
+    }
+    .logo__circle--blue {
+      width: 20px;
+      height: 20px;
+      background: #0056ff;
+      right: 0;
+      top: 50%;
+      transform: translateY(-20%);
+      z-index: 0;
+    }
+    .logo__text {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.05rem;
+      line-height: 0.95;
+      color: #000;
+      letter-spacing: -0.02em;
+    }
+    .logo--sm .logo__text { font-size: 0.92rem; }
+    .logo--sm .logo__circle--yellow { width: 18px; height: 18px; }
+    .logo--sm .logo__circle--blue { width: 16px; height: 16px; }
+    .footer-logo {
+      background: #fff;
+      padding: 10px 14px;
+      border-radius: 14px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .text-highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .nav-pill {
+      justify-self: center;
+      display: flex;
+      gap: 4px;
+      padding: 5px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+    }
+    .nav-pill a {
+      padding: 9px 16px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      border-radius: var(--radius-pill);
+      transition: all var(--transition);
+    }
+    .nav-pill a:hover { background: #fff; color: var(--text); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .header__actions {
+      justify-self: end;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .header__phone { font-weight: 600; font-size: 0.9rem; }
+    .header__phone:hover { color: var(--accent); }
+    .messengers { display: flex; gap: 8px; }
+    .messengers a {
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: #fff;
+      transition: border-color var(--transition);
+    }
+    .messengers a:hover { border-color: var(--accent); }
+    .messengers svg { width: 17px; height: 17px; }
+    .messenger-icon--max {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      border-radius: 5px;
+      display: block;
+    }
+    .messengers .messenger-icon--max { width: 18px; height: 18px; }
+    .hero-messenger-btn .messenger-icon--max { width: 20px; height: 20px; }
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 8px;
+    }
+    .burger span { width: 22px; height: 2px; background: var(--text); transition: transform var(--transition); }
+    .burger--open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger--open span:nth-child(2) { opacity: 0; }
+    .burger--open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--header-h); left: 0; right: 0; bottom: 0;
+      background: #fff;
+      padding: 28px 24px;
+      z-index: 999;
+      flex-direction: column;
+      gap: 20px;
+      overflow-y: auto;
+    }
+    .mobile-menu--open { display: flex; }
+    .mobile-menu .nav-pill { flex-direction: column; width: 100%; border-radius: var(--radius-lg); }
+    .mobile-menu .messengers { gap: 12px; }
+    .mobile-menu .messengers a { width: 48px; height: 48px; }
+    .mobile-menu__actions { margin-top: auto; display: flex; flex-direction: column; gap: 12px; }
+
+    /* Hero */
+    .hero-wrap { padding: calc(var(--header-h) + 20px) 0 40px; }
+    .hero-panel {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      min-height: min(78vh, 680px);
+      display: flex;
+      align-items: flex-end;
+      box-shadow: var(--shadow);
+    }
+    .hero-panel__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-panel__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.2) 100%);
+    }
+    .hero-panel__content {
+      position: relative;
+      z-index: 2;
+      padding: clamp(32px, 5vw, 56px);
+      max-width: 720px;
+      color: #fff;
+    }
+    .hero__eyebrow {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      opacity: 0.8;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero__eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--accent); }
+    .hero-panel h1 {
+      font-size: clamp(1.45rem, 3.6vw, 2.5rem);
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      letter-spacing: 0.01em;
+    }
+    .hero__sub { font-size: 1.05rem; opacity: 0.88; margin-bottom: 26px; line-height: 1.55; }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; }
+    .hero__note { font-size: 0.78rem; opacity: 0.65; margin-bottom: 20px; }
+    .hero-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      margin-bottom: 20px;
+    }
+    .hero-contact-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: #fff;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: var(--radius-pill);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .hero-contact-phone:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .hero-contact-phone svg { width: 18px; height: 18px; color: var(--accent); flex-shrink: 0; }
+    .hero-messenger-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: var(--radius-pill);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .hero-messenger-btn:hover {
+      background: rgba(255,255,255,0.22);
+      border-color: rgba(255,255,255,0.45);
+    }
+    .hero-messenger-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+    .hero-tag {
+      padding: 10px 18px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius-pill);
+      color: #fff;
+    }
+    .badge-guarantee {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: var(--accent);
+      border-radius: var(--radius-pill);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    /* Media */
+    .media {
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      background: var(--bg-soft);
+    }
+    .media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .media:hover img { transform: scale(1.04); }
+
+    /* Service cards */
+    .cards-3, .cards-4 {
+      display: grid;
+      gap: 20px;
+    }
+    .cards-3 { grid-template-columns: repeat(3, 1fr); }
+    .cards-4 { grid-template-columns: repeat(4, 1fr); }
+    .service-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .service-card .media { aspect-ratio: 4/3; border-radius: 0; }
+    .service-card__body { padding: 22px 24px 26px; }
+    .service-card h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 8px;
+    }
+    .service-card p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5; }
+
+    /* Compare block */
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .compare__col {
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      border: 1px solid var(--border);
+    }
+    .compare__col--bad { background: #fafafa; }
+    .compare__col--good {
+      background: linear-gradient(135deg, #fff8f4, #fff);
+      border-color: rgba(255,85,0,0.25);
+      box-shadow: 0 12px 40px rgba(255,85,0,0.1);
+    }
+    .compare__label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-secondary);
+    }
+    .compare__col--good .compare__label { color: var(--accent); }
+    .compare ul { display: flex; flex-direction: column; gap: 12px; }
+    .compare li {
+      display: flex;
+      gap: 12px;
+      font-size: 0.92rem;
+      align-items: flex-start;
+    }
+    .compare__col--bad li::before { content: '✕'; color: #ccc; font-weight: 700; }
+    .compare__col--good li::before { content: ''; width: 7px; height: 7px; margin-top: 8px; background: var(--accent); border-radius: 2px; flex-shrink: 0; }
+
+    /* Process */
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      counter-reset: step;
+    }
+    .process__item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .process__item::before {
+      counter-increment: step;
+      content: counter(step, decimal-leading-zero);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--accent-soft);
+      position: absolute;
+      top: 8px;
+      right: 16px;
+      line-height: 1;
+    }
+    .process__item h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      position: relative;
+    }
+    .process__item p { font-size: 0.85rem; color: var(--text-secondary); position: relative; }
+
+    /* Trust split */
+    .split {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .split .media { aspect-ratio: 16/11; border-radius: var(--radius-xl); }
+    .split--reverse { direction: rtl; }
+    .split--reverse > * { direction: ltr; }
+    .bullet-list { display: flex; flex-direction: column; gap: 14px; margin: 24px 0 28px; }
+    .bullet-list li {
+      display: flex;
+      gap: 12px;
+      font-size: 0.95rem;
+      align-items: flex-start;
+    }
+    .bullet-list li::before {
+      content: '';
+      width: 7px; height: 7px;
+      margin-top: 8px;
+      background: var(--accent);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Control — image + cards */
+    .control-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+    .control-grid .media { border-radius: var(--radius-xl); min-height: 360px; }
+    .control-cards {
+      display: grid;
+      gap: 14px;
+    }
+    .control-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 22px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .control-card:hover { border-color: rgba(255,85,0,0.3); box-shadow: var(--shadow); }
+    .control-card__num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .control-card h4 { font-size: 0.95rem; margin-bottom: 4px; }
+    .control-card p { font-size: 0.85rem; color: var(--text-secondary); }
+
+    /* Form panel */
+    .form-panel {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: clamp(36px, 5vw, 52px);
+      box-shadow: var(--shadow);
+    }
+    .accent-line { width: 48px; height: 4px; background: var(--accent); border-radius: 2px; margin-bottom: 20px; }
+    .form-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      max-width: 100%;
+      width: 100%;
+    }
+    .form-row input, .form-grid input {
+      flex: 1 1 auto;
+      min-width: 0;
+      width: 100%;
+      max-width: 100%;
+      padding: 15px 22px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      font-size: 1rem;
+      background: var(--bg);
+    }
+    .form-row input:focus, .form-grid input:focus { outline: none; border-color: var(--accent); }
+    .form-note { margin-top: 12px; font-size: 0.85rem; color: var(--text-secondary); }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr minmax(0, auto);
+      gap: 12px;
+      max-width: 100%;
+      width: 100%;
+    }
+    .form-grid .btn { min-width: 0; }
+
+    /* Prevent grid/flex children from overflowing */
+    .cards-3 > *, .cards-4 > *, .bento > *, .process > *,
+    .compare > *, .split > *, .control-grid > *, .projects-photo__slide > *,
+    .inclusive-bento > *, .service-card, .form-panel, .final-panel {
+      min-width: 0;
+    }
+
+    /* Bento stats */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+    .bento__item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+    .bento__item--wide { grid-column: span 2; }
+    .bento__item--accent {
+      background: linear-gradient(135deg, var(--accent), #ff7733);
+      border: none;
+      color: #fff;
+    }
+    .bento__item--accent .stat__label { color: rgba(255,255,255,0.85); }
+    .stat__num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .bento__item--accent .stat__num { color: #fff; }
+    .stat__label { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.4; }
+
+    /* Наши проекты */
+    .projects-gallery { margin-top: 56px; }
+    .projects-gallery__head { margin-bottom: 20px; }
+    .projects-gallery__head .section-sub { margin-bottom: 0; }
+    .projects-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .projects-tab {
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border);
+      background: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: border-color var(--transition), background var(--transition), color var(--transition);
+    }
+    .projects-tab:hover { border-color: var(--accent); }
+    .projects-tab--active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .projects-photo {
+      position: relative;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .projects-photo__viewport {
+      overflow: hidden;
+      width: 100%;
+      touch-action: pan-y pinch-zoom;
+      cursor: grab;
+      user-select: none;
+    }
+    .projects-photo__viewport.is-dragging {
+      cursor: grabbing;
+    }
+    .projects-photo__track {
+      display: flex;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+    .projects-photo__track--dragging {
+      transition: none;
+    }
+    .projects-photo__slide {
+      flex: 0 0 100%;
+      min-width: 0;
+    }
+    .projects-photo__slide img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      max-height: 360px;
+      object-fit: cover;
+      display: block;
+      background: #eee;
+      cursor: zoom-in;
+    }
+    .photo-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 16px 16px;
+    }
+    .photo-lightbox--open {
+      display: flex;
+    }
+    .photo-lightbox__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+    }
+    .photo-lightbox__img {
+      position: relative;
+      z-index: 1;
+      max-width: min(1100px, 96vw);
+      max-height: 86vh;
+      object-fit: contain;
+      border-radius: 8px;
+      touch-action: pan-y pinch-zoom;
+    }
+    .photo-lightbox__close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 2;
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .photo-lightbox__close:hover { background: rgba(255,255,255,0.22); }
+    .photo-lightbox__nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .photo-lightbox__nav:hover { background: rgba(255,255,255,0.2); }
+    .photo-lightbox__nav:disabled { opacity: 0.3; cursor: not-allowed; }
+    .photo-lightbox__nav svg { width: 20px; height: 20px; }
+    .photo-lightbox__nav--prev { left: 12px; }
+    .photo-lightbox__nav--next { right: 12px; }
+    .photo-lightbox__counter {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .projects-photo__controls {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      padding: 0 12px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .projects-photo__controls .carousel__btn { pointer-events: auto; box-shadow: var(--shadow); }
+    .projects-photo__counter {
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      z-index: 2;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .carousel__btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color var(--transition), background var(--transition);
+    }
+    .carousel__btn:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+    .carousel__btn:disabled { opacity: 0.35; cursor: not-allowed; }
+    .carousel__btn svg { width: 18px; height: 18px; }
+    .carousel__dots {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 16px 12px 18px;
+    }
+    .carousel__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      background: var(--border);
+      cursor: pointer;
+      padding: 0;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .carousel__dot--active {
+      background: var(--accent);
+      transform: scale(1.2);
+    }
+    .projects-detail {
+      margin-top: 24px;
+      padding: 24px 28px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+    }
+    .projects-detail h3 {
+      font-size: 1.15rem;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+    .projects-detail__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .projects-detail__chip {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .projects-detail__desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .projects-detail__highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .projects-detail__tag {
+      font-size: 0.75rem;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    /* Testimonial */
+    .testimonial {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 28px;
+      align-items: center;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 36px 40px;
+      margin-top: 40px;
+    }
+    .testimonial__avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--accent-soft);
+    }
+    .testimonial blockquote {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .testimonial cite { display: block; margin-top: 10px; font-size: 0.85rem; color: var(--text-secondary); font-style: normal; }
+
+    /* Inclusive bento */
+    .inclusive-bento {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .inclusive-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex;
+      gap: 18px;
+      transition: box-shadow var(--transition);
+    }
+    .inclusive-card:hover { box-shadow: var(--shadow); }
+    .inclusive-card__icon {
+      width: 48px; height: 48px;
+      background: var(--accent-soft);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .inclusive-card h4 { font-size: 0.9rem; text-transform: uppercase; margin-bottom: 6px; }
+    .inclusive-card p { font-size: 0.88rem; color: var(--text-secondary); }
+
+    /* Final CTA */
+    .final-panel {
+      text-align: center;
+      padding: clamp(48px, 6vw, 72px);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, #fff5ef 0%, #fff 50%);
+      border: 1px solid rgba(255,85,0,0.2);
+    }
+    .final-panel .section-sub { margin: 0 auto 32px; text-align: center; }
+    .final-panel .form-grid { margin: 0 auto; max-width: 640px; }
+
+    /* Footer */
+    .footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.75);
+      padding: 56px 0 32px;
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+      margin-top: 24px;
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 36px;
+    }
+    .footer p, .footer a { font-size: 0.9rem; margin-top: 8px; display: block; }
+    .footer a:hover { color: #fff; }
+    .footer strong { color: #fff; }
+    .footer__bottom {
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.85rem;
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .form-grid .btn { width: 100%; white-space: normal; }
+    }
+
+    /* Responsive — tablet */
+    @media (max-width: 1024px) {
+      :root { --header-h: 72px; }
+      .header__inner { grid-template-columns: 1fr auto; gap: 12px; }
+      .header .nav-pill { display: none; }
+      .header__actions > *:not(.burger) { display: none; }
+      .header__actions .burger { display: flex; }
+      .mobile-menu .nav-pill {
+        display: flex !important;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .mobile-menu .nav-pill a {
+        text-align: center;
+        padding: 14px 16px;
+      }
+      .cards-3, .cards-4, .process, .bento { grid-template-columns: repeat(2, 1fr); }
+      .bento__item--wide { grid-column: span 2; }
+      .split, .control-grid, .compare { grid-template-columns: 1fr; }
+      .split--reverse { direction: ltr; }
+      .footer__grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Responsive — mobile */
+    @media (max-width: 768px) {
+      :root {
+        --header-h: 64px;
+        --radius-xl: 24px;
+        --radius-lg: 20px;
+      }
+      section { padding: 48px 0; }
+      .container { padding-left: 14px; padding-right: 14px; }
+
+
+      .hero-wrap { padding-top: calc(var(--header-h) + 12px); padding-bottom: 28px; }
+      .hero-panel {
+        min-height: auto;
+        border-radius: var(--radius-lg);
+      }
+      .hero-panel__overlay {
+        background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.75) 70%);
+      }
+      .hero-panel__content { padding: 24px 18px 28px; max-width: 100%; }
+      .hero-panel h1 { font-size: 1.25rem; word-wrap: break-word; overflow-wrap: break-word; }
+      .hero__sub { font-size: 0.92rem; margin-bottom: 20px; }
+      .hero__eyebrow { font-size: 0.65rem; letter-spacing: 0.08em; flex-wrap: wrap; }
+      .hero__actions { flex-direction: column; align-items: stretch; }
+      .hero__actions .btn { width: 100%; white-space: normal; text-align: center; padding: 14px 18px; }
+      .hero-contacts { flex-direction: column; align-items: stretch; }
+      .hero-contact-phone, .hero-messenger-btn {
+        width: 100%;
+        justify-content: center;
+        white-space: normal;
+        text-align: center;
+      }
+      .hero-tag { padding: 8px 14px; font-size: 0.7rem; }
+      .logo__text { font-size: 0.9rem; }
+      .logo__mark { padding-left: 14px; padding-right: 22px; min-height: 38px; }
+      .projects-gallery__head { margin-bottom: 16px; }
+      .projects-tab { font-size: 0.72rem; padding: 9px 14px; }
+      .projects-detail { padding: 20px 18px; }
+      .projects-photo { max-width: 100%; }
+      .projects-photo__slide img { max-height: 260px; }
+      .badge-guarantee { font-size: 0.78rem; max-width: 100%; flex-wrap: wrap; }
+
+      .section-title { font-size: 1.2rem; hyphens: auto; }
+      .section-sub { font-size: 0.95rem; margin-bottom: 28px; }
+
+      .cards-3, .cards-4, .process, .inclusive-bento, .bento {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .bento__item--wide { grid-column: span 1; }
+      .bento__item { padding: 22px 20px; }
+      .stat__num { font-size: 2rem; word-break: break-word; }
+
+      .compare { margin-top: 32px; gap: 14px; }
+      .compare__col { padding: 22px 18px; }
+      .compare li { font-size: 0.88rem; }
+
+      .process__item { padding: 22px 18px; }
+      .process__item::before { font-size: 2.2rem; right: 12px; }
+
+      .split { gap: 28px; }
+      .split .media { aspect-ratio: 4/3; border-radius: var(--radius-lg); }
+      .control-grid .media { min-height: 240px; }
+      .control-card { padding: 18px; flex-wrap: wrap; }
+
+      .form-panel, .final-panel { padding: 24px 18px; border-radius: var(--radius-lg); }
+      .form-row { flex-direction: column; }
+      .form-row input, .form-grid input { flex: none; width: 100%; }
+      .form-row .btn, .form-grid .btn {
+        width: 100%;
+        white-space: normal;
+        text-align: center;
+      }
+      .form-grid { grid-template-columns: 1fr; }
+
+      .service-card__body { padding: 18px 16px 22px; }
+      .inclusive-card { padding: 20px 16px; flex-direction: column; align-items: flex-start; }
+
+      .testimonial {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 24px 18px;
+        margin-top: 28px;
+      }
+      .testimonial__avatar { margin: 0 auto; }
+      .testimonial blockquote { font-size: 0.98rem; }
+
+      .btn { white-space: normal; max-width: 100%; }
+      .split .btn, .form-panel .btn { width: 100%; }
+
+      .footer { border-radius: var(--radius-lg) var(--radius-lg) 0 0; padding: 40px 0 28px; }
+      .footer__grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer__bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* Small phones */
+    @media (max-width: 380px) {
+      .container { padding-left: 12px; padding-right: 12px; }
+      .hero-panel h1 { font-size: 1.1rem; }
+      .hero-panel__content { padding: 20px 14px 24px; }
+      .compare__col { padding: 18px 14px; }
+      .stat__num { font-size: 1.75rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="logo" aria-label="второй слой">
+        <span class="logo__mark">
+          <span class="logo__circle logo__circle--yellow" aria-hidden="true"></span>
+          <span class="logo__circle logo__circle--blue" aria-hidden="true"></span>
+          <span class="logo__text"><span>второй</span><span>слой</span></span>
+        </span>
+      </a>
+      <nav class="nav-pill" aria-label="Навигация">
+        <a href="#services">Услуги</a>
+        <a href="#about">О нас</a>
+        <a href="#works">Наши работы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <div class="header__actions">
+        <a href="tel:+79098444362" class="header__phone">8 (909) 844-43-62</a>
+        <div class="messengers" aria-label="Мессенджеры">
+          <a href="https://wa.me/79098444362" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#25D366"/></svg>
+          </a>
+          <a href="https://t.me/ermak_remont" target="_blank" rel="noopener" aria-label="Telegram">
+            <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" fill="#26A5E4"/></svg>
+          </a>
+          <a href="https://max.ru" data-messenger="max" target="_blank" rel="noopener" aria-label="MAX">
+            <img src="images/max-icon.svg" alt="" class="messenger-icon--max" width="18" height="18">
+          </a>
+        </div>
+        <button type="button" class="btn btn--primary" data-scroll="#form-1">Рассчитать стоимость</button>
+        <button type="button" class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="nav-pill">
+      <a href="#services">Услуги</a>
+      <a href="#about">О нас</a>
+      <a href="#works">Наши работы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a href="tel:+79098444362" class="header__phone">8 (909) 844-43-62</a>
+    <div class="messengers" aria-label="Мессенджеры">
+      <a href="https://wa.me/79098444362" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#25D366"/></svg>
+      </a>
+      <a href="https://t.me/ermak_remont" target="_blank" rel="noopener" aria-label="Telegram">
+        <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" fill="#26A5E4"/></svg>
+      </a>
+      <a href="https://max.ru" data-messenger="max" target="_blank" rel="noopener" aria-label="MAX">
+        <img src="images/max-icon.svg" alt="" class="messenger-icon--max" width="18" height="18">
+      </a>
+    </div>
+    <div class="mobile-menu__actions">
+      <button type="button" class="btn btn--primary btn--full" data-scroll="#form-1">Рассчитать стоимость</button>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero-wrap" id="hero">
+    <div class="container">
+      <div class="hero-panel fade-in">
+        <img class="hero-panel__img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=80" alt="Ремонт коммерческого помещения" width="1400" height="800" loading="eager">
+        <div class="hero-panel__overlay"></div>
+        <div class="hero-panel__content">
+          <p class="hero__eyebrow">Санкт-Петербург · Ленинградская область</p>
+          <div class="badge-guarantee"><span class="dot"></span> Даём гарантию на работы</div>
+          <h1>Ремонт коммерческих помещений к запуску вашего бизнеса</h1>
+          <p class="hero__sub">Оплачиваете только ту стоимость, что указана в договоре. Фиксируем чёткие сроки выполнения работ.</p>
+          <div class="hero__actions">
+            <button type="button" class="btn btn--primary btn--lg" data-scroll="#form-1">Приедем сегодня и рассчитаем стоимость</button>
+          </div>
+          <p class="hero__note">это абсолютно бесплатно и ни к чему вас не обязывает</p>
+          <div class="hero-contacts">
+            <a href="tel:+79098444362" class="hero-contact-phone">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              8 (909) 844-43-62
+            </a>
+            <a href="https://wa.me/79098444362" class="hero-messenger-btn" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#25D366"/></svg>
+              WhatsApp
+            </a>
+            <a href="https://t.me/ermak_remont" class="hero-messenger-btn" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" fill="#26A5E4"/></svg>
+              Telegram
+            </a>
+            <a href="https://max.ru" data-messenger="max" class="hero-messenger-btn" target="_blank" rel="noopener">
+              <img src="images/max-icon.svg" alt="" class="messenger-icon--max" width="20" height="20">
+              MAX
+            </a>
+          </div>
+          <div class="hero-tags">
+            <span class="hero-tag">Офисы</span>
+            <span class="hero-tag">Ритейл</span>
+            <span class="hero-tag">Рестораны</span>
+            <span class="hero-tag">Склады</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <section class="section--white">
+    <div class="container fade-in">
+      <h2 class="section-title">Как мы работаем</h2>
+      <p class="section-sub">От заявки до старта ремонта — прозрачно и без лишних встреч</p>
+      <div class="process">
+        <div class="process__item">
+          <h4>Заявка</h4>
+          <p>Оставляете телефон или пишете в мессенджер — перезваниваем за 10 минут</p>
+        </div>
+        <div class="process__item">
+          <h4>Выезд на объект</h4>
+          <p>Бесплатный замер и расчёт сметы, которую зафиксируем в договоре</p>
+        </div>
+        <div class="process__item">
+          <h4>Договор</h4>
+          <p>Чёткие сроки, этапы оплаты после приёмки работ, без доплат</p>
+        </div>
+        <div class="process__item">
+          <h4>Старт работ</h4>
+          <p>Можем начать на следующий день после подписания договора</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN POINTS -->
+  <section id="services" class="section--soft">
+    <div class="container">
+      <div class="fade-in">
+        <h2 class="section-title">Закрываем главные страхи перед ремонтом</h2>
+        <p class="section-sub">Три ситуации, из-за которых бизнес откладывает запуск — и как мы их решаем</p>
+      </div>
+      <div class="cards-3">
+        <article class="service-card fade-in">
+          <div class="media">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80" alt="Соблюдение сроков на стройке" width="600" height="450" loading="lazy">
+          </div>
+          <div class="service-card__body">
+            <h3>Срывают сроки?</h3>
+            <p>Прописываем чёткие сроки в договоре. Если не успеваем — усиливаем бригады и выходим в ночь и выходные</p>
+            <a href="#form-1" class="link-more"><span class="dot dot--sq"></span> Подробнее</a>
+          </div>
+        </article>
+        <article class="service-card fade-in">
+          <div class="media">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80" alt="Честная оплата по этапам" width="600" height="450" loading="lazy">
+          </div>
+          <div class="service-card__body">
+            <h3>Берут аванс и пропадают?</h3>
+            <p>Вы не платите наперёд. Только после приёмки каждого этапа работ</p>
+            <a href="#form-1" class="link-more"><span class="dot dot--sq"></span> Подробнее</a>
+          </div>
+        </article>
+        <article class="service-card fade-in">
+          <div class="media">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="Фиксированная смета в договоре" width="600" height="450" loading="lazy">
+          </div>
+          <div class="service-card__body">
+            <h3>Непредвиденные расходы?</h3>
+            <p>Фиксируем смету в договоре. Ноль доплат сверх утверждённой суммы</p>
+            <a href="#form-1" class="link-more"><span class="dot dot--sq"></span> Подробнее</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="compare fade-in">
+        <div class="compare__col compare__col--bad">
+          <div class="compare__label">Обычный подрядчик</div>
+          <ul>
+            <li>Сроки «на глаз», без ответственности в договоре</li>
+            <li>Аванс 50–100%, потом пропадают</li>
+            <li>Смета «примерная», доплаты на каждом этапе</li>
+            <li>Вы сами контролируете бригаду</li>
+          </ul>
+        </div>
+        <div class="compare__col compare__col--good">
+          <div class="compare__label">второй слой</div>
+          <ul>
+            <li>Сроки в договоре, усиливаем бригады при необходимости</li>
+            <li>Оплата только после приёмки этапа</li>
+            <li>Фиксированная смета, 0 ₽ доплат</li>
+            <li>Бригадир, прораб и ежедневные отчёты</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM 1 -->
+  <section class="section--white" id="form-1">
+    <div class="container fade-in">
+      <div class="form-panel">
+        <div class="accent-line"></div>
+        <h2 class="section-title">Бесплатно приедем и зафиксируем смету в договоре</h2>
+        <p class="section-sub">Отправим коммерческое предложение с материалами и точной стоимостью работ</p>
+        <form class="lead-form" data-form="measure">
+          <div class="form-row">
+            <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required pattern="[\d\s\+\-\(\)]{10,}">
+            <button type="submit" class="btn btn--primary">Забронировать выезд замерщика</button>
+          </div>
+          <p class="form-note">Свяжемся с вами в течение 10 минут</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="section--soft">
+    <div class="container fade-in">
+      <div class="split">
+        <div class="media">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80" alt="Современный офис после ремонта" width="900" height="620" loading="lazy">
+        </div>
+        <div>
+          <h2 class="section-title">Прогнозируемый ремонт помещения для вашего бизнеса — бюджет и сроки прописаны в договоре</h2>
+          <p class="section-sub" style="margin-bottom:0">Мы понимаем, как вам важно запустить бизнес как можно раньше, без простоев и переплат за аренду. <span class="text-highlight">Поэтому, если мы не успеваем — усиливаем бригады, выходим работать в ночь и в выходные дни.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTROL -->
+  <section class="section--white">
+    <div class="container fade-in">
+      <h2 class="section-title">Вам не придётся контролировать рабочих</h2>
+      <p class="section-sub">Решаем проблемы без вашего вмешательства и сдаём готовый объект</p>
+      <div class="control-grid">
+        <div class="media">
+          <img src="https://images.unsplash.com/photo-1581578731544-c64695cc6952?w=800&q=80" alt="Прораб на объекте" width="800" height="600" loading="lazy">
+        </div>
+        <div class="control-cards">
+          <div class="control-card">
+            <span class="control-card__num">01</span>
+            <div>
+              <h4>Ежедневный отчёт</h4>
+              <p>Фото и описание каждого выполненного этапа — в мессенджер или почту</p>
+            </div>
+          </div>
+          <div class="control-card">
+            <span class="control-card__num">02</span>
+            <div>
+              <h4>Бригадир и прораб</h4>
+              <p>На объекте всегда ответственный — вы знаете, к кому обратиться</p>
+            </div>
+          </div>
+          <div class="control-card">
+            <span class="control-card__num">03</span>
+            <div>
+              <h4>Видеонаблюдение</h4>
+              <p>По запросу ставим камеры — смотрите процесс удалённо</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REMOTE -->
+  <section class="section--soft">
+    <div class="container fade-in">
+      <div class="split split--reverse">
+        <div class="media">
+          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80" alt="Расчёт по фото в мессенджере" width="900" height="620" loading="lazy">
+        </div>
+        <div>
+          <h2 class="section-title">Расчёт по фото или техзаданию</h2>
+          <p class="section-sub">Пришлите фото объекта или дизайн-проект — дадим предварительную стоимость без встречи</p>
+          <form class="lead-form" data-form="messenger">
+            <div class="form-row">
+              <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required pattern="[\d\s\+\-\(\)]{10,}">
+              <button type="submit" class="btn btn--primary">Связаться в мессенджере</button>
+            </div>
+          </form>
+          <div class="messengers" style="margin-top:20px">
+            <a href="https://wa.me/79098444362" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#25D366"/></svg>
+            </a>
+            <a href="https://t.me/ermak_remont" target="_blank" rel="noopener" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" fill="#26A5E4"/></svg>
+            </a>
+            <a href="https://max.ru" data-messenger="max" target="_blank" rel="noopener" aria-label="MAX">
+              <img src="images/max-icon.svg" alt="" class="messenger-icon--max" width="18" height="18">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section--white" id="about">
+    <div class="container fade-in">
+      <div class="split">
+        <div class="media">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="Команда второй слой" width="800" height="1000" loading="lazy">
+        </div>
+        <div>
+          <h2 class="section-title">Мы — люди, и делаем для людей</h2>
+          <p class="section-sub" style="margin-bottom:16px">Мы не идеальные роботы из рекламы. Прошли через сложные стройки и научились главному: не бросать начатое и держать слово. С нами не нужно «воевать» за результат — мы на вашей стороне.</p>
+          <p style="font-size:0.9rem;color:var(--text-secondary);font-style:italic;margin-bottom:24px">Никогда не навязываем лишние услуги — подбираем решение под задачу</p>
+          <button type="button" class="btn btn--primary" data-scroll="#form-1">Получить консультацию</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVANTAGES -->
+  <section class="section--soft">
+    <div class="container">
+      <h2 class="section-title fade-in">Почему с нами без сюрпризов</h2>
+      <div class="cards-4">
+        <article class="service-card fade-in">
+          <div class="media">
+            <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=500&q=80" alt="Ответственная команда мастеров" width="500" height="375" loading="lazy">
+          </div>
+          <div class="service-card__body">
+            <h3>Пропадать — не наш стиль</h3>
+            <p>Ответственность за каждого мастера. Вы знаете, кто и когда на объекте.</p>
+            <a href="#about" class="link-more"><span class="dot dot--sq"></span> Подробнее</a>
+          </div>
+        </article>
+        <article class="service-card fade-in">
+          <div class="media">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=500&q=80" alt="Опытные бригады" width="500" height="375" loading="lazy">
+          </div>
+          <div class="service-card__body">
+            <h3>Опыт, проверенный делом</h3>
+            <p>6 бригад, средний стаж 5 лет. Мы уже прошли через всё.</p>
+            <a href="#works" class="link-more"><span class="dot dot--sq"></span> Подробнее</a>
+          </div>
+        </article>
+        <article class="service-card fade-in">
+          <div class="media">
+            <img src="https://images.unsplash.com/photo-1503389152951-9f343605f48e?w=500&q=80" alt="Соблюдение технологий" width="500" height="375" loading="lazy">
+          </div>
+          <div class="service-card__body">
+            <h3>Технологии превыше всего</h3>
+            <p>Соблюдаем этапы и нормативы — без переделок.</p>
+            <a href="#form-1" class="link-more"><span class="dot dot--sq"></span> Подробнее</a>
+          </div>
+        </article>
+        <article class="service-card fade-in">
+          <div class="media">
+            <img src="https://images.unsplash.com/photo-1541976590-71394110926e?w=500&q=80" alt="Сложные проекты" width="500" height="375" loading="lazy">
+          </div>
+          <div class="service-card__body">
+            <h3>Любая сложность — решаема</h3>
+            <p>Привлечём узкопрофильных специалистов под нестандартные задачи.</p>
+            <a href="#form-1" class="link-more"><span class="dot dot--sq"></span> Подробнее</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS + WORKS -->
+  <section class="section--white" id="works">
+    <div class="container fade-in">
+      <h2 class="section-title">Нам доверяют масштабные задачи</h2>
+      <div class="bento">
+        <div class="bento__item bento__item--wide">
+          <div class="stat__num">137+</div>
+          <div class="stat__label">выполнено заказов, включая государственные тендеры</div>
+        </div>
+        <div class="bento__item">
+          <div class="stat__num">8 500+</div>
+          <div class="stat__label">м² отремонтированных площадей</div>
+        </div>
+        <div class="bento__item bento__item--accent">
+          <div class="stat__num">0 ₽</div>
+          <div class="stat__label">доплат сверх утверждённой сметы</div>
+        </div>
+        <div class="bento__item">
+          <div class="stat__num">75%</div>
+          <div class="stat__label">клиентов вернулись или порекомендовали нас</div>
+        </div>
+      </div>
+
+      <div class="projects-gallery fade-in" id="projects">
+        <div class="projects-gallery__head">
+          <h2 class="section-title">Наши проекты</h2>
+          <p class="section-sub">Выберите объект — фотографии и описание обновятся</p>
+        </div>
+        <div class="projects-tabs" id="projects-tabs" role="tablist" aria-label="Список проектов"></div>
+        <div class="projects-photo" id="projects-photo">
+          <div class="projects-photo__controls">
+            <button type="button" class="carousel__btn carousel__btn--prev" id="projects-photo-prev" aria-label="Предыдущее фото">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <button type="button" class="carousel__btn carousel__btn--next" id="projects-photo-next" aria-label="Следующее фото">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+          <div class="projects-photo__viewport" id="projects-photo-viewport">
+            <div class="projects-photo__track" id="projects-photo-track"></div>
+          </div>
+          <div class="projects-photo__counter" id="projects-photo-counter" aria-live="polite"></div>
+          <div class="carousel__dots" id="projects-photo-dots"></div>
+        </div>
+        <div class="projects-detail" id="projects-detail" aria-live="polite"></div>
+      </div>
+
+      <div class="photo-lightbox" id="photo-lightbox" aria-hidden="true" role="dialog" aria-label="Просмотр фото">
+        <div class="photo-lightbox__backdrop" id="photo-lightbox-backdrop"></div>
+        <button type="button" class="photo-lightbox__close" id="photo-lightbox-close" aria-label="Закрыть">&times;</button>
+        <button type="button" class="photo-lightbox__nav photo-lightbox__nav--prev" id="photo-lightbox-prev" aria-label="Предыдущее фото">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <img class="photo-lightbox__img" id="photo-lightbox-img" alt="">
+        <button type="button" class="photo-lightbox__nav photo-lightbox__nav--next" id="photo-lightbox-next" aria-label="Следующее фото">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <div class="photo-lightbox__counter" id="photo-lightbox-counter"></div>
+      </div>
+
+      <div class="testimonial fade-in">
+        <div class="testimonial__avatar">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&q=80" alt="Клиент" width="150" height="150" loading="lazy">
+        </div>
+        <div>
+          <blockquote>«Наши клиенты ценят нас за соблюдение сроков и лояльное отношение — с нами спокойно запускать бизнес»</blockquote>
+          <cite>— типичный отзыв заказчиков второй слой</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALL INCLUSIVE -->
+  <section class="section--soft">
+    <div class="container fade-in">
+      <h2 class="section-title">Берём все заботы на себя</h2>
+      <div class="inclusive-bento">
+        <div class="inclusive-card">
+          <div class="inclusive-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+          </div>
+          <div>
+            <h4>Никаких скрытых платежей</h4>
+            <p>Подробная смета, зафиксированная в договоре</p>
+          </div>
+        </div>
+        <div class="inclusive-card">
+          <div class="inclusive-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+          </div>
+          <div>
+            <h4>Честная закупка</h4>
+            <p>Петрович, Леруа Мерлен — без наценки на материалы</p>
+          </div>
+        </div>
+        <div class="inclusive-card">
+          <div class="inclusive-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div>
+            <h4>Контроль на каждом этапе</h4>
+            <p>Принимаете работу поэтапно</p>
+          </div>
+        </div>
+        <div class="inclusive-card">
+          <div class="inclusive-card__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          </div>
+          <div>
+            <h4>Чистый финал</h4>
+            <p>Вывозим мусор, оставляем объект чистым</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-panel">
+        <form class="lead-form" data-form="discuss">
+          <div class="form-grid">
+            <input type="text" name="name" placeholder="Ваше имя" required>
+            <input type="tel" name="phone" placeholder="Телефон" required pattern="[\d\s\+\-\(\)]{10,}">
+            <button type="submit" class="btn btn--primary">Обсудить ремонт</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section--white" id="form-final">
+    <div class="container fade-in">
+      <div class="final-panel">
+        <h2 class="section-title">Давайте обсудим ваш проект на месте</h2>
+        <p class="section-sub">Бесплатный выезд и расчёт сметы. Расчёт сегодня, договор завтра, старт — на следующий день.</p>
+        <form class="lead-form" data-form="meeting">
+          <div class="form-grid">
+            <input type="text" name="name" placeholder="Ваше имя" required>
+            <input type="tel" name="phone" placeholder="Телефон" required pattern="[\d\s\+\-\(\)]{10,}">
+            <button type="submit" class="btn btn--primary btn--lg">Назначить встречу</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contacts">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer-logo">
+            <a href="#" class="logo logo--sm" aria-label="второй слой">
+              <span class="logo__mark">
+                <span class="logo__circle logo__circle--yellow" aria-hidden="true"></span>
+                <span class="logo__circle logo__circle--blue" aria-hidden="true"></span>
+                <span class="logo__text"><span>второй</span><span>слой</span></span>
+              </span>
+            </a>
+          </div>
+          <p>второй слой</p>
+          <p>Ремонт коммерческих помещений</p>
+        </div>
+        <div>
+          <p><strong>Адрес</strong></p>
+          <p>Санкт-Петербург и Ленинградская область</p>
+          <p><a href="tel:+79098444362">8 (909) 844-43-62</a></p>
+          <p><a href="mailto:info@ermak-remont.ru">info@ermak-remont.ru</a></p>
+        </div>
+        <div>
+          <p><strong>Связаться</strong></p>
+          <div class="messengers" style="margin-top:12px">
+            <a href="https://wa.me/79098444362" target="_blank" rel="noopener" aria-label="WhatsApp" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15)">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#25D366"/></svg>
+            </a>
+            <a href="https://t.me/ermak_remont" target="_blank" rel="noopener" aria-label="Telegram" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15)">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" fill="#26A5E4"/></svg>
+            </a>
+            <a href="https://max.ru" data-messenger="max" target="_blank" rel="noopener" aria-label="MAX" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15)">
+              <img src="images/max-icon.svg" alt="" class="messenger-icon--max" width="18" height="18">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2025 второй слой. Все права защищены.</span>
+        <span>Санкт-Петербург</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="projects-data.js"></script>
+  <script>
+    (function () {
+      /* Ссылка на MAX: Профиль → Пригласить друзей → скопировать (формат https://max.ru/u/...) */
+      var MAX_LINK = 'https://max.ru';
+      document.querySelectorAll('[data-messenger="max"]').forEach(function (el) {
+        el.href = MAX_LINK;
+      });
+
+      var header = document.getElementById('header');
+      var burger = document.getElementById('burger');
+      var mobileMenu = document.getElementById('mobileMenu');
+
+      window.addEventListener('scroll', function () {
+        header.classList.toggle('header--scrolled', window.scrollY > 30);
+      }, { passive: true });
+
+      burger.addEventListener('click', function () {
+        var open = burger.classList.toggle('burger--open');
+        mobileMenu.classList.toggle('mobile-menu--open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+
+      function closeMenu() {
+        burger.classList.remove('burger--open');
+        mobileMenu.classList.remove('mobile-menu--open');
+        document.body.style.overflow = '';
+      }
+
+      mobileMenu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+
+      document.querySelectorAll('[data-scroll]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          var t = document.querySelector(el.getAttribute('data-scroll'));
+          if (t) { closeMenu(); t.scrollIntoView({ behavior: 'smooth' }); }
+        });
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          var href = a.getAttribute('href');
+          if (href === '#') return;
+          var t = document.querySelector(href);
+          if (t) {
+            e.preventDefault();
+            closeMenu();
+            var top = t.getBoundingClientRect().top + window.scrollY - header.offsetHeight;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+          }
+        });
+      });
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+      document.querySelectorAll('.fade-in').forEach(function (el) { io.observe(el); });
+      var hero = document.querySelector('.hero-panel');
+      if (hero) hero.classList.add('visible');
+
+      var messages = {
+        measure: 'Спасибо! Заявка на выезд замерщика принята. Свяжемся в течение 10 минут.',
+        messenger: 'Спасибо! Напишем вам в мессенджер в ближайшее время.',
+        discuss: 'Спасибо! Перезвоним, чтобы обсудить ремонт.',
+        meeting: 'Спасибо! Свяжемся для уточнения времени встречи.'
+      };
+      document.querySelectorAll('.lead-form').forEach(function (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          alert(messages[form.getAttribute('data-form')] || 'Спасибо! Заявка принята.');
+          form.reset();
+        });
+      });
+
+      /* Галерея проектов */
+      (function initProjectsGallery() {
+        var data = window.PROJECTS_DATA || [];
+        var tabsEl = document.getElementById('projects-tabs');
+        var trackEl = document.getElementById('projects-photo-track');
+        var dotsEl = document.getElementById('projects-photo-dots');
+        var viewportEl = document.getElementById('projects-photo-viewport');
+        var detailEl = document.getElementById('projects-detail');
+        var counterEl = document.getElementById('projects-photo-counter');
+        var prevBtn = document.getElementById('projects-photo-prev');
+        var nextBtn = document.getElementById('projects-photo-next');
+        var lightboxEl = document.getElementById('photo-lightbox');
+        var lightboxImg = document.getElementById('photo-lightbox-img');
+        var lightboxCounter = document.getElementById('photo-lightbox-counter');
+        var lightboxClose = document.getElementById('photo-lightbox-close');
+        var lightboxBackdrop = document.getElementById('photo-lightbox-backdrop');
+        var lightboxPrev = document.getElementById('photo-lightbox-prev');
+        var lightboxNext = document.getElementById('photo-lightbox-next');
+
+        if (!data.length || !tabsEl || !trackEl || !detailEl) return;
+
+        var projectIndex = 0;
+        var photoIndex = 0;
+        var currentImages = [];
+        var currentTitle = '';
+        var lightboxOpen = false;
+        var dragActive = false;
+        var dragMoved = false;
+        var dragStartX = 0;
+        var dragCurrentX = 0;
+
+        function assetPath(path) {
+          return path.split('/').map(function (part, i) {
+            return i === 0 ? part : encodeURIComponent(part);
+          }).join('/');
+        }
+
+        function slideWidth() {
+          var slides = trackEl.children;
+          return slides.length ? slides[0].offsetWidth : 0;
+        }
+
+        function setTrackOffset(px, animate) {
+          trackEl.classList.toggle('projects-photo__track--dragging', !animate);
+          trackEl.style.transform = 'translateX(' + px + 'px)';
+        }
+
+        function buildTabs() {
+          tabsEl.innerHTML = '';
+          data.forEach(function (project, i) {
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'projects-tab' + (i === projectIndex ? ' projects-tab--active' : '');
+            btn.textContent = project.tab;
+            btn.setAttribute('role', 'tab');
+            btn.setAttribute('aria-selected', i === projectIndex ? 'true' : 'false');
+            btn.addEventListener('click', function () { selectProject(i); });
+            tabsEl.appendChild(btn);
+          });
+        }
+
+        function updateTabs() {
+          var tabs = tabsEl.querySelectorAll('.projects-tab');
+          for (var i = 0; i < tabs.length; i++) {
+            tabs[i].classList.toggle('projects-tab--active', i === projectIndex);
+            tabs[i].setAttribute('aria-selected', i === projectIndex ? 'true' : 'false');
+          }
+        }
+
+        function renderDetail(project) {
+          var highlights = (project.highlights || []).map(function (item) {
+            return '<span class="projects-detail__tag">' + item + '</span>';
+          }).join('');
+
+          detailEl.innerHTML =
+            '<h3>' + project.title + '</h3>' +
+            '<div class="projects-detail__meta">' +
+              '<span class="projects-detail__chip">' + project.type + '</span>' +
+              '<span class="projects-detail__chip">' + project.area + '</span>' +
+              '<span class="projects-detail__chip">Срок: ' + project.duration + '</span>' +
+            '</div>' +
+            '<p class="projects-detail__desc">' + project.desc + '</p>' +
+            (highlights ? '<div class="projects-detail__highlights">' + highlights + '</div>' : '');
+        }
+
+        function openLightbox(index) {
+          if (!lightboxEl || !lightboxImg || !currentImages.length) return;
+          photoIndex = index;
+          lightboxOpen = true;
+          lightboxEl.classList.add('photo-lightbox--open');
+          lightboxEl.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+          updateLightbox();
+          goToPhoto(photoIndex, true);
+        }
+
+        function closeLightbox() {
+          if (!lightboxEl) return;
+          lightboxOpen = false;
+          lightboxEl.classList.remove('photo-lightbox--open');
+          lightboxEl.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }
+
+        function updateLightbox() {
+          if (!lightboxOpen || !lightboxImg) return;
+          lightboxImg.src = assetPath(currentImages[photoIndex]);
+          lightboxImg.alt = currentTitle + ' — фото ' + (photoIndex + 1);
+          if (lightboxCounter) {
+            lightboxCounter.textContent = (photoIndex + 1) + ' / ' + currentImages.length;
+          }
+          if (lightboxPrev) lightboxPrev.disabled = photoIndex === 0;
+          if (lightboxNext) lightboxNext.disabled = photoIndex >= currentImages.length - 1;
+        }
+
+        function buildPhotoTrack(images, title) {
+          currentImages = images;
+          currentTitle = title;
+          trackEl.innerHTML = '';
+          images.forEach(function (src, i) {
+            var slide = document.createElement('div');
+            slide.className = 'projects-photo__slide';
+            var img = document.createElement('img');
+            img.src = assetPath(src);
+            img.alt = title + ' — фото ' + (i + 1);
+            img.loading = i === 0 ? 'eager' : 'lazy';
+            img.draggable = false;
+            img.addEventListener('click', function () {
+              if (dragMoved) return;
+              openLightbox(i);
+            });
+            slide.appendChild(img);
+            trackEl.appendChild(slide);
+          });
+        }
+
+        function buildDots(count) {
+          if (!dotsEl) return;
+          dotsEl.innerHTML = '';
+          for (var d = 0; d < count; d++) {
+            (function (page) {
+              var dot = document.createElement('button');
+              dot.type = 'button';
+              dot.className = 'carousel__dot' + (page === photoIndex ? ' carousel__dot--active' : '');
+              dot.setAttribute('aria-label', 'Фото ' + (page + 1));
+              dot.addEventListener('click', function () { goToPhoto(page); });
+              dotsEl.appendChild(dot);
+            })(d);
+          }
+        }
+
+        function updateDots() {
+          if (!dotsEl) return;
+          var dots = dotsEl.querySelectorAll('.carousel__dot');
+          for (var i = 0; i < dots.length; i++) {
+            dots[i].classList.toggle('carousel__dot--active', i === photoIndex);
+          }
+        }
+
+        function updateCounter(total) {
+          if (!counterEl) return;
+          counterEl.textContent = (photoIndex + 1) + ' / ' + total;
+        }
+
+        function goToPhoto(i, skipLightboxSync) {
+          var slides = trackEl.children;
+          var total = slides.length;
+          if (!total) return;
+          photoIndex = Math.max(0, Math.min(i, total - 1));
+          setTrackOffset(-slideWidth() * photoIndex, true);
+          if (prevBtn) prevBtn.disabled = photoIndex === 0;
+          if (nextBtn) nextBtn.disabled = photoIndex >= total - 1;
+          updateDots();
+          updateCounter(total);
+          if (!skipLightboxSync && lightboxOpen) updateLightbox();
+        }
+
+        function selectProject(i) {
+          if (lightboxOpen) closeLightbox();
+          projectIndex = i;
+          photoIndex = 0;
+          var project = data[projectIndex];
+          updateTabs();
+          buildPhotoTrack(project.images, project.title);
+          renderDetail(project);
+          buildDots(project.images.length);
+          goToPhoto(0);
+        }
+
+        function pointerX(e) {
+          if (e.touches && e.touches.length) return e.touches[0].clientX;
+          if (e.changedTouches && e.changedTouches.length) return e.changedTouches[0].clientX;
+          return e.clientX;
+        }
+
+        function startDrag(e) {
+          if (e.button !== undefined && e.button !== 0) return;
+          dragActive = true;
+          dragMoved = false;
+          dragStartX = pointerX(e);
+          dragCurrentX = dragStartX;
+          viewportEl.classList.add('is-dragging');
+          trackEl.classList.add('projects-photo__track--dragging');
+        }
+
+        function moveDrag(e) {
+          if (!dragActive) return;
+          dragCurrentX = pointerX(e);
+          var diff = dragCurrentX - dragStartX;
+          if (Math.abs(diff) > 6) dragMoved = true;
+          if (dragMoved && e.cancelable) e.preventDefault();
+          setTrackOffset(-slideWidth() * photoIndex + diff, false);
+        }
+
+        function endDrag() {
+          if (!dragActive) return;
+          dragActive = false;
+          viewportEl.classList.remove('is-dragging');
+          var diff = dragCurrentX - dragStartX;
+          var threshold = Math.min(80, slideWidth() * 0.18);
+          var wasMoved = dragMoved;
+          if (Math.abs(diff) > threshold) {
+            goToPhoto(photoIndex + (diff < 0 ? 1 : -1));
+          } else {
+            goToPhoto(photoIndex);
+          }
+          if (wasMoved) {
+            window.setTimeout(function () { dragMoved = false; }, 320);
+          } else {
+            dragMoved = false;
+          }
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', function () { goToPhoto(photoIndex - 1); });
+        if (nextBtn) nextBtn.addEventListener('click', function () { goToPhoto(photoIndex + 1); });
+
+        if (viewportEl) {
+          viewportEl.addEventListener('touchstart', startDrag, { passive: true });
+          viewportEl.addEventListener('touchmove', moveDrag, { passive: false });
+          viewportEl.addEventListener('touchend', endDrag);
+          viewportEl.addEventListener('mousedown', startDrag);
+          window.addEventListener('mousemove', moveDrag);
+          window.addEventListener('mouseup', endDrag);
+        }
+
+        if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+        if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+        if (lightboxPrev) lightboxPrev.addEventListener('click', function () { goToPhoto(photoIndex - 1); });
+        if (lightboxNext) lightboxNext.addEventListener('click', function () { goToPhoto(photoIndex + 1); });
+
+        if (lightboxEl) {
+          var lbStartX = 0;
+          var lbMoved = false;
+          lightboxEl.addEventListener('touchstart', function (e) {
+            lbStartX = e.touches[0].clientX;
+            lbMoved = false;
+          }, { passive: true });
+          lightboxEl.addEventListener('touchmove', function (e) {
+            if (Math.abs(e.touches[0].clientX - lbStartX) > 8) lbMoved = true;
+          }, { passive: true });
+          lightboxEl.addEventListener('touchend', function (e) {
+            var diff = lbStartX - e.changedTouches[0].clientX;
+            if (lbMoved && Math.abs(diff) > 45) goToPhoto(photoIndex + (diff > 0 ? 1 : -1));
+          });
+        }
+
+        document.addEventListener('keydown', function (e) {
+          if (!lightboxOpen) return;
+          if (e.key === 'Escape') closeLightbox();
+          if (e.key === 'ArrowLeft') goToPhoto(photoIndex - 1);
+          if (e.key === 'ArrowRight') goToPhoto(photoIndex + 1);
+        });
+
+        var resizeTimer;
+        window.addEventListener('resize', function () {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(function () { goToPhoto(photoIndex, true); }, 150);
+        });
+
+        buildTabs();
+        selectProject(0);
+      })();
+    })();
+  </script>
+</body>
+</html>
