@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="второй слой — ремонт коммерческих помещений в Санкт-Петербурге. Фиксированная смета, сроки в договоре.">
-  <title>второй слой — Ремонт коммерческих помещений | Санкт-Петербург</title>
+  <meta name="description" content="ВТОРОЙ СЛОЙ — ремонт коммерческих помещений в Санкт-Петербурге. Фиксированная смета, сроки в договоре.">
+  <title>ВТОРОЙ СЛОЙ — Ремонт коммерческих помещений | Санкт-Петербург</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
@@ -200,17 +200,16 @@
       line-height: 0.95;
       color: #000;
       letter-spacing: -0.02em;
+      text-transform: uppercase;
     }
     .logo--sm .logo__text { font-size: 0.92rem; }
     .logo--sm .logo__circle--yellow { width: 18px; height: 18px; }
     .logo--sm .logo__circle--blue { width: 16px; height: 16px; }
     .footer-logo {
-      background: #fff;
-      padding: 10px 14px;
-      border-radius: 14px;
       display: inline-block;
       margin-bottom: 12px;
     }
+    .footer .logo__text { color: #fff; }
     .text-highlight {
       color: var(--accent);
       font-weight: 600;
@@ -967,6 +966,8 @@
     }
     .final-panel .section-sub { margin: 0 auto 32px; text-align: center; }
     .final-panel .form-grid { margin: 0 auto; max-width: 640px; }
+    .final-panel .accent-line { margin-left: auto; margin-right: auto; }
+    .final-panel .form-note { text-align: center; }
 
     /* Footer */
     .footer {
@@ -1139,7 +1140,7 @@
 <body>
   <header class="header" id="header">
     <div class="container header__inner">
-      <a href="#" class="logo" aria-label="второй слой">
+      <a href="#" class="logo" aria-label="ВТОРОЙ СЛОЙ">
         <span class="logo__mark">
           <span class="logo__circle logo__circle--yellow" aria-hidden="true"></span>
           <span class="logo__circle logo__circle--blue" aria-hidden="true"></span>
@@ -1316,7 +1317,7 @@
           </ul>
         </div>
         <div class="compare__col compare__col--good">
-          <div class="compare__label">второй слой</div>
+          <div class="compare__label">ВТОРОЙ СЛОЙ</div>
           <ul>
             <li>Сроки в договоре, усиливаем бригады при необходимости</li>
             <li>Оплата только после приёмки этапа</li>
@@ -1434,7 +1435,7 @@
     <div class="container fade-in">
       <div class="split">
         <div class="media">
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="Команда второй слой" width="800" height="1000" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="Команда ВТОРОЙ СЛОЙ" width="800" height="1000" loading="lazy">
         </div>
         <div>
           <h2 class="section-title">Мы — люди, и делаем для людей</h2>
@@ -1561,7 +1562,7 @@
         </div>
         <div>
           <blockquote>«Наши клиенты ценят нас за соблюдение сроков и лояльное отношение — с нами спокойно запускать бизнес»</blockquote>
-          <cite>— типичный отзыв заказчиков второй слой</cite>
+          <cite>— типичный отзыв заказчиков ВТОРОЙ СЛОЙ</cite>
         </div>
       </div>
     </div>
@@ -1609,15 +1610,6 @@
           </div>
         </div>
       </div>
-      <div class="form-panel">
-        <form class="lead-form" data-form="discuss">
-          <div class="form-grid">
-            <input type="text" name="name" placeholder="Ваше имя" required>
-            <input type="tel" name="phone" placeholder="Телефон" required pattern="[\d\s\+\-\(\)]{10,}">
-            <button type="submit" class="btn btn--primary">Обсудить ремонт</button>
-          </div>
-        </form>
-      </div>
     </div>
   </section>
 
@@ -1625,14 +1617,16 @@
   <section class="section--white" id="form-final">
     <div class="container fade-in">
       <div class="final-panel">
-        <h2 class="section-title">Давайте обсудим ваш проект на месте</h2>
+        <div class="accent-line"></div>
+        <h2 class="section-title">Давайте обсудим ваш проект</h2>
         <p class="section-sub">Бесплатный выезд и расчёт сметы. Расчёт сегодня, договор завтра, старт — на следующий день.</p>
-        <form class="lead-form" data-form="meeting">
+        <form class="lead-form" data-form="final">
           <div class="form-grid">
             <input type="text" name="name" placeholder="Ваше имя" required>
             <input type="tel" name="phone" placeholder="Телефон" required pattern="[\d\s\+\-\(\)]{10,}">
-            <button type="submit" class="btn btn--primary btn--lg">Назначить встречу</button>
+            <button type="submit" class="btn btn--primary btn--lg">Обсудить ремонт</button>
           </div>
+          <p class="form-note">Свяжемся с вами в течение 10 минут</p>
         </form>
       </div>
     </div>
@@ -1644,7 +1638,7 @@
       <div class="footer__grid">
         <div>
           <div class="footer-logo">
-            <a href="#" class="logo logo--sm" aria-label="второй слой">
+            <a href="#" class="logo logo--sm" aria-label="ВТОРОЙ СЛОЙ">
               <span class="logo__mark">
                 <span class="logo__circle logo__circle--yellow" aria-hidden="true"></span>
                 <span class="logo__circle logo__circle--blue" aria-hidden="true"></span>
@@ -1652,7 +1646,6 @@
               </span>
             </a>
           </div>
-          <p>второй слой</p>
           <p>Ремонт коммерческих помещений</p>
         </div>
         <div>
@@ -1677,7 +1670,7 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <span>© 2025 второй слой. Все права защищены.</span>
+        <span>© 2025 ВТОРОЙ СЛОЙ. Все права защищены.</span>
         <span>Санкт-Петербург</span>
       </div>
     </div>
@@ -1748,7 +1741,8 @@
         measure: 'Спасибо! Заявка на выезд замерщика принята. Свяжемся в течение 10 минут.',
         messenger: 'Спасибо! Напишем вам в мессенджер в ближайшее время.',
         discuss: 'Спасибо! Перезвоним, чтобы обсудить ремонт.',
-        meeting: 'Спасибо! Свяжемся для уточнения времени встречи.'
+        meeting: 'Спасибо! Свяжемся для уточнения времени встречи.',
+        final: 'Спасибо! Свяжемся с вами в течение 10 минут.'
       };
       document.querySelectorAll('.lead-form').forEach(function (form) {
         form.addEventListener('submit', function (e) {
