@@ -4,6 +4,8 @@
 $ErrorActionPreference = "Stop"
 $root = $PSScriptRoot
 
+$env:Path = "C:\Program Files\Git\cmd;C:\Program Files\Git\bin;C:\Program Files\GitHub CLI;" + $env:Path
+
 function Find-Git {
   $candidates = @(
     "git",
@@ -17,6 +19,8 @@ function Find-Git {
 }
 
 $git = Find-Git
+$gh = "C:\Program Files\GitHub CLI\gh.exe"
+if (-not (Test-Path $gh)) { $gh = "gh" }
 if (-not $git) {
   Write-Host ""
   Write-Host "Git не найден. Установите один из вариантов:" -ForegroundColor Yellow
@@ -45,15 +49,17 @@ if ($changes) {
 }
 
 if (-not (& $git remote get-url origin 2>$null)) {
-  $repo = Read-Host "Введите URL репозитория GitHub (например https://github.com/user/vtoroy-sloy.git)"
-  if ($repo) {
-    & $git remote add origin $repo
-  }
+  Write-Host ""
+  Write-Host "Создаём репозиторий на GitHub..." -ForegroundColor Cyan
+  $repoName = Read-Host "Имя репозитория (например vtoroy-sloy)"
+  if (-not $repoName) { $repoName = "vtoroy-sloy" }
+  & $gh auth login
+  & $gh repo create $repoName --public --source=. --remote=origin --push
+} else {
+  Write-Host ""
+  Write-Host "Отправка на GitHub..." -ForegroundColor Cyan
+  & $git push -u origin main
 }
-
-Write-Host ""
-Write-Host "Отправка на GitHub..." -ForegroundColor Cyan
-& $git push -u origin main
 
 Write-Host ""
 Write-Host "Готово! Включите GitHub Pages:" -ForegroundColor Green

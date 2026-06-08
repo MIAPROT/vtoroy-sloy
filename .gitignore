@@ -5,3 +5,4 @@ Desktop.ini
 *.mov
 *.mp4
 node_modules/
+.env
