@@ -567,7 +567,12 @@
       gap: 24px;
       align-items: stretch;
     }
-    .control-grid .media { border-radius: var(--radius-xl); min-height: 360px; }
+    .control-grid .media {
+      border-radius: var(--radius-xl);
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      max-height: 360px;
+    }
     .control-cards {
       display: grid;
       gap: 14px;
@@ -1117,6 +1122,10 @@
       .cards-3, .cards-4, .process, .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .split, .control-grid, .compare { grid-template-columns: 1fr; }
       .split--reverse { direction: ltr; }
+      .control-grid .media {
+        aspect-ratio: 16 / 10;
+        max-height: 280px;
+      }
       .footer__grid { grid-template-columns: 1fr 1fr; }
     }
 
@@ -1181,7 +1190,11 @@
 
       .split { gap: 28px; }
       .split .media { aspect-ratio: 4/3; border-radius: var(--radius-lg); }
-      .control-grid .media { min-height: 240px; }
+      .control-grid .media {
+        aspect-ratio: 16 / 10;
+        max-height: 220px;
+        border-radius: var(--radius-lg);
+      }
       .control-card { padding: 18px; flex-wrap: wrap; }
 
       .form-panel, .final-panel { padding: 24px 18px; border-radius: var(--radius-lg); }
@@ -1354,7 +1367,7 @@
       <div class="cards-3">
         <article class="service-card fade-in">
           <div class="media">
-            <img src="images/fear-contract.jpg" alt="Фиксированная смета по договору" width="600" height="450" loading="lazy">
+            <img src="images/fear-contract.jpg" alt="Офис после ремонта — коридор Академия ТОП" width="600" height="450" loading="lazy">
           </div>
           <div class="service-card__body">
             <h3>Срывают сроки?</h3>
@@ -1364,7 +1377,7 @@
         </article>
         <article class="service-card fade-in">
           <div class="media">
-            <img src="images/fear-object.jpg" alt="Объект и сроки — ремонт для Газпрома, 4000 м²" width="600" height="450" loading="lazy">
+            <img src="images/fear-object.jpg" alt="Готовый офис после ремонта" width="600" height="450" loading="lazy">
           </div>
           <div class="service-card__body">
             <h3>Берут аванс и пропадают?</h3>
