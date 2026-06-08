@@ -44,7 +44,7 @@
       max-width: 100%;
     }
     img { max-width: 100%; display: block; }
-    .media img, .hero-panel__img, .testimonial__avatar img {
+    .media img, .hero-panel__img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -975,32 +975,6 @@
       color: var(--text-secondary);
     }
 
-    /* Testimonial */
-    .testimonial {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 28px;
-      align-items: center;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 36px 40px;
-      margin-top: 40px;
-    }
-    .testimonial__avatar {
-      width: 72px; height: 72px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid var(--accent-soft);
-    }
-    .testimonial blockquote {
-      font-size: 1.1rem;
-      font-style: italic;
-      color: var(--text);
-      line-height: 1.5;
-    }
-    .testimonial cite { display: block; margin-top: 10px; font-size: 0.85rem; color: var(--text-secondary); font-style: normal; }
-
     /* Inclusive bento */
     .inclusive-bento {
       display: grid;
@@ -1226,15 +1200,6 @@
 
       .service-card__body { padding: 18px 16px 22px; }
       .inclusive-card { padding: 20px 16px; flex-direction: column; align-items: flex-start; }
-
-      .testimonial {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 24px 18px;
-        margin-top: 28px;
-      }
-      .testimonial__avatar { margin: 0 auto; }
-      .testimonial blockquote { font-size: 0.98rem; }
 
       .btn { white-space: normal; max-width: 100%; }
       .split .btn, .form-panel .btn { width: 100%; }
@@ -1676,15 +1641,6 @@
         <div class="photo-lightbox__counter" id="photo-lightbox-counter"></div>
       </div>
 
-      <div class="testimonial fade-in">
-        <div class="testimonial__avatar">
-          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&q=80" alt="Клиент" width="150" height="150" loading="lazy">
-        </div>
-        <div>
-          <blockquote>«Наши клиенты ценят нас за соблюдение сроков и лояльное отношение — с нами спокойно запускать бизнес»</blockquote>
-          <cite>— типичный отзыв заказчиков ВТОРОЙ СЛОЙ</cite>
-        </div>
-      </div>
     </div>
   </section>
 
