@@ -609,7 +609,7 @@
       max-width: 100%;
       width: 100%;
     }
-    .form-row input, .form-grid input {
+    .form-row input, .form-grid input, .form-stack input {
       flex: 1 1 auto;
       min-width: 0;
       width: 100%;
@@ -620,10 +620,22 @@
       font-size: 1rem;
       background: var(--bg);
     }
-    .form-row input:focus, .form-grid input:focus { outline: none; border-color: var(--accent); }
+    .form-row input:focus, .form-grid input:focus, .form-stack input:focus { outline: none; border-color: var(--accent); }
     .form-note { margin-top: 12px; font-size: 0.85rem; color: var(--text-secondary); }
     .form-success { margin-top: 12px; font-size: 0.95rem; color: var(--accent); font-weight: 600; }
     .form-grid .btn[disabled] { opacity: 0.65; cursor: not-allowed; }
+    .form-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 100%;
+    }
+    .form-stack input,
+    .form-stack .btn {
+      width: 100%;
+      max-width: 100%;
+    }
     .form-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -639,11 +651,18 @@
     .final-panel .form-grid {
       max-width: 720px;
     }
-    .split .form-grid {
-      grid-template-columns: 1fr;
+    .split .form-grid,
+    .split .form-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
-    .split .form-grid .btn {
+    .split .form-grid input,
+    .split .form-grid .btn,
+    .split .form-stack input,
+    .split .form-stack .btn {
       width: 100%;
+      grid-column: auto;
     }
     @media (min-width: 640px) {
       .form-panel .form-grid,
@@ -1197,8 +1216,8 @@
 
       .form-panel, .final-panel { padding: 24px 18px; border-radius: var(--radius-lg); }
       .form-row { flex-direction: column; }
-      .form-row input, .form-grid input { flex: none; width: 100%; }
-      .form-row .btn, .form-grid .btn {
+      .form-row input, .form-grid input, .form-stack input { flex: none; width: 100%; }
+      .form-row .btn, .form-grid .btn, .form-stack .btn {
         width: 100%;
         white-space: normal;
         text-align: center;
@@ -1508,7 +1527,7 @@
           <h2 class="section-title">Расчёт по фото или техзаданию</h2>
           <p class="section-sub">Пришлите фото объекта или дизайн-проект — дадим предварительную стоимость без встречи</p>
           <form class="lead-form" data-form-name="Расчёт по фото">
-            <div class="form-grid">
+            <div class="form-stack">
               <input type="text" name="name" placeholder="Ваше имя" required autocomplete="name">
               <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required pattern="[\d\s\+\-\(\)]{10,}" autocomplete="tel">
               <button type="submit" class="btn btn--primary">Связаться в мессенджере</button>
