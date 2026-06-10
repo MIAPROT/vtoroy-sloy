@@ -1031,7 +1031,7 @@
       .projects-body .projects-photo__slide img {
         width: 100%;
         aspect-ratio: 16 / 9;
-        max-height: 200px;
+        max-height: 280px;
         min-height: 0;
         object-fit: cover;
       }
@@ -1051,12 +1051,8 @@
         padding: 5px 10px;
       }
       .projects-body .projects-detail__desc {
-        font-size: 0.86rem;
-        line-height: 1.45;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        font-size: 0.88rem;
+        line-height: 1.5;
       }
       .projects-body .projects-detail__highlights {
         margin-top: 10px;
@@ -1735,19 +1731,6 @@
         </div>
       </div>
 
-      <div class="photo-lightbox" id="photo-lightbox" aria-hidden="true" role="dialog" aria-label="Просмотр фото">
-        <div class="photo-lightbox__backdrop" id="photo-lightbox-backdrop"></div>
-        <button type="button" class="photo-lightbox__close" id="photo-lightbox-close" aria-label="Закрыть">&times;</button>
-        <button type="button" class="photo-lightbox__nav photo-lightbox__nav--prev" id="photo-lightbox-prev" aria-label="Предыдущее фото">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <img class="photo-lightbox__img" id="photo-lightbox-img" alt="">
-        <button type="button" class="photo-lightbox__nav photo-lightbox__nav--next" id="photo-lightbox-next" aria-label="Следующее фото">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-        <div class="photo-lightbox__counter" id="photo-lightbox-counter"></div>
-      </div>
-
     </div>
   </section>
 
@@ -1859,6 +1842,19 @@
       </div>
     </div>
   </footer>
+
+  <div class="photo-lightbox" id="photo-lightbox" aria-hidden="true" role="dialog" aria-label="Просмотр фото">
+    <div class="photo-lightbox__backdrop" id="photo-lightbox-backdrop"></div>
+    <button type="button" class="photo-lightbox__close" id="photo-lightbox-close" aria-label="Закрыть">&times;</button>
+    <button type="button" class="photo-lightbox__nav photo-lightbox__nav--prev" id="photo-lightbox-prev" aria-label="Предыдущее фото">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <img class="photo-lightbox__img" id="photo-lightbox-img" alt="">
+    <button type="button" class="photo-lightbox__nav photo-lightbox__nav--next" id="photo-lightbox-next" aria-label="Следующее фото">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+    <div class="photo-lightbox__counter" id="photo-lightbox-counter"></div>
+  </div>
 
   <script src="projects-data.js"></script>
   <script>
