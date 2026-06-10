@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="ВТОРОЙ СЛОЙ — ремонт коммерческих помещений в Санкт-Петербурге. Фиксированная смета, сроки в договоре.">
   <title>ВТОРОЙ СЛОЙ — Ремонт коммерческих помещений | Санкт-Петербург</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
@@ -175,7 +176,7 @@
     .logo__circle--yellow {
       width: 22px;
       height: 22px;
-      background: #f9e104;
+      background: var(--accent);
       left: 0;
       top: 2px;
       z-index: 0;
@@ -183,7 +184,7 @@
     .logo__circle--blue {
       width: 20px;
       height: 20px;
-      background: #0056ff;
+      background: #9a9a9a;
       right: 0;
       top: 50%;
       transform: translateY(-20%);
@@ -627,6 +628,19 @@
     }
     .form-row input:focus, .form-grid input:focus, .form-stack input:focus { outline: none; border-color: var(--accent); }
     .form-note { margin-top: 12px; font-size: 0.85rem; color: var(--text-secondary); }
+    .form-legal {
+      margin-top: 10px;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .form-legal a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .form-legal a:hover { color: var(--accent); }
+    .final-panel .form-legal { text-align: center; }
     .form-success { margin-top: 12px; font-size: 0.95rem; color: var(--accent); font-weight: 600; }
     .form-grid .btn[disabled] { opacity: 0.65; cursor: not-allowed; }
     .form-stack {
@@ -976,6 +990,37 @@
       border-radius: var(--radius-pill);
       border: 1px solid var(--border);
       color: var(--text-secondary);
+    }
+    @media (min-width: 1025px) {
+      .projects-body {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+        gap: 20px;
+        align-items: stretch;
+      }
+      .projects-body .projects-photo {
+        max-width: none;
+        margin: 0;
+      }
+      .projects-body .projects-detail {
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .projects-body .projects-photo__viewport {
+        min-height: 320px;
+        height: 100%;
+      }
+      .projects-body .projects-photo__slide,
+      .projects-body .projects-photo__slide img {
+        height: 100%;
+      }
+      .projects-body .projects-photo__slide img {
+        max-height: none;
+        min-height: 320px;
+        aspect-ratio: auto;
+      }
     }
 
     /* Inclusive bento */
@@ -1434,6 +1479,7 @@
             <button type="submit" class="btn btn--primary">Забронировать выезд замерщика</button>
           </div>
           <p class="form-note">Свяжемся с вами в течение 10 минут</p>
+          <p class="form-legal">Отправляя форму, вы соглашаетесь с <a href="docs/privacy-policy.pdf" target="_blank" rel="noopener">политикой конфиденциальности</a> и <a href="docs/personal-data.pdf" target="_blank" rel="noopener">обработкой персональных данных</a>.</p>
         </form>
       </div>
     </div>
@@ -1507,6 +1553,7 @@
               <button type="submit" class="btn btn--primary">Связаться в мессенджере</button>
             </div>
             <p class="form-note">Свяжемся с вами в течение 10 минут</p>
+            <p class="form-legal">Отправляя форму, вы соглашаетесь с <a href="docs/privacy-policy.pdf" target="_blank" rel="noopener">политикой конфиденциальности</a> и <a href="docs/personal-data.pdf" target="_blank" rel="noopener">обработкой персональных данных</a>.</p>
           </form>
           <div class="messengers" style="margin-top:20px">
             <a href="https://wa.me/79098444362" target="_blank" rel="noopener" aria-label="WhatsApp">
@@ -1619,6 +1666,7 @@
           <p class="section-sub">Выберите объект — фотографии и описание обновятся</p>
         </div>
         <div class="projects-tabs" id="projects-tabs" role="tablist" aria-label="Список проектов"></div>
+        <div class="projects-body">
         <div class="projects-photo" id="projects-photo">
           <div class="projects-photo__controls">
             <button type="button" class="carousel__btn carousel__btn--prev" id="projects-photo-prev" aria-label="Предыдущее фото">
@@ -1635,6 +1683,7 @@
           <div class="carousel__dots" id="projects-photo-dots"></div>
         </div>
         <div class="projects-detail" id="projects-detail" aria-live="polite"></div>
+        </div>
       </div>
 
       <div class="photo-lightbox" id="photo-lightbox" aria-hidden="true" role="dialog" aria-label="Просмотр фото">
@@ -1712,6 +1761,7 @@
             <button type="submit" class="btn btn--primary btn--lg">Обсудить ремонт</button>
           </div>
           <p class="form-note">Свяжемся с вами в течение 10 минут</p>
+          <p class="form-legal">Отправляя форму, вы соглашаетесь с <a href="docs/privacy-policy.pdf" target="_blank" rel="noopener">политикой конфиденциальности</a> и <a href="docs/personal-data.pdf" target="_blank" rel="noopener">обработкой персональных данных</a>.</p>
         </form>
       </div>
     </div>
