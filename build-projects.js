@@ -117,6 +117,10 @@ const projects = [
   }
 ];
 
+const imageSwaps = {
+  italian: [[0, 8]]
+};
+
 const data = projects.map(function (p) {
   const dir = path.join(root, p.folder);
   const images = fs.existsSync(dir)
@@ -124,6 +128,13 @@ const data = projects.map(function (p) {
         return 'images/' + p.folder + '/' + f;
       })
     : [];
+  (imageSwaps[p.id] || []).forEach(function (pair) {
+    if (images.length > Math.max(pair[0], pair[1])) {
+      var tmp = images[pair[0]];
+      images[pair[0]] = images[pair[1]];
+      images[pair[1]] = tmp;
+    }
+  });
   return Object.assign({}, p, { images: images });
 }).filter(function (p) { return p.images.length; });
 
