@@ -121,10 +121,27 @@ const imageSwaps = {
   italian: [[0, 8]]
 };
 
+const imageExcludes = {
+  production: [
+    '17AAC4E6-6D37-435A-B3E8-F535B1FD614F.webp',
+    '868abc75-e32d-4390-abd1-801f123f2425.JPG',
+    '89bdf05f-6c7a-4ee7-bf16-5f710a695296.JPG',
+    '9105fdc4-8c59-4e71-84be-96e8238d5f66.JPG',
+    'D8D433F6-2F58-4461-8750-045790802274.webp',
+    'a5a07500-96b7-4f7e-9256-e636fc6f4617.JPG',
+    'd0d3e902-9f02-4214-8ff1-32f4dc24c825.JPG',
+    'f6e9e23b-354f-45b3-a327-7a8ca0598bad.JPG',
+    'ffde62c9-0234-4741-b908-cae11c81ac6e.JPG'
+  ]
+};
+
 const data = projects.map(function (p) {
   const dir = path.join(root, p.folder);
+  const exclude = new Set((imageExcludes[p.id] || []).map(function (f) { return f.toLowerCase(); }));
   const images = fs.existsSync(dir)
-    ? fs.readdirSync(dir).filter(function (f) { return ok.test(f); }).sort().map(function (f) {
+    ? fs.readdirSync(dir).filter(function (f) {
+        return ok.test(f) && !exclude.has(f.toLowerCase());
+      }).sort().map(function (f) {
         return 'images/' + p.folder + '/' + f;
       })
     : [];
