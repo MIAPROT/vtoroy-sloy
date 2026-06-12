@@ -132,26 +132,125 @@ const imageExcludes = {
     'd0d3e902-9f02-4214-8ff1-32f4dc24c825.JPG',
     'f6e9e23b-354f-45b3-a327-7a8ca0598bad.JPG',
     'ffde62c9-0234-4741-b908-cae11c81ac6e.JPG'
+  ],
+  'graf-orlov': [
+    'IMG_2056.jpeg',
+    'IMG_2061.jpeg',
+    'IMG_2063.jpeg',
+    'IMG_2071.jpg'
   ]
 };
+
+const imageOrderOverrides = {
+  'graf-orlov': [
+    'IMG_2062.jpeg',
+    'IMG_2055.jpeg',
+    'IMG_2057.jpeg',
+    'IMG_2058.jpeg',
+    'IMG_2059.jpeg',
+    'IMG_2060.jpeg',
+    '9313EF31-1A11-4D3F-8831-7B1034DDF3DB.JPG',
+    'IMG_2064.jpeg',
+    'IMG_2065.jpg',
+    'IMG_2067.jpg',
+    'IMG_2068.jpg',
+    'IMG_2069.jpg',
+    'IMG_2070.jpg',
+    'IMG_2072.jpg',
+    'IMG_2074.jpg'
+  ],
+  demolition: [
+    'IMG_6715.jpeg',
+    'IMG_6707.jpeg',
+    'IMG_6709.jpeg',
+    'IMG_6710.jpeg',
+    'IMG_6712.jpeg',
+    'IMG_6706.jpeg',
+    'IMG_8009.jpeg',
+    'IMG_8010.jpeg',
+    'IMG_8011.jpeg',
+    'IMG_8013.jpeg'
+  ],
+  gazprom: [
+    'BEE34E22-7687-44E1-8CAA-48F7CF60551E.webp',
+    '82F90C8C-CE63-469D-AF2F-D3AECF24B132.webp',
+    '8582B189-3836-4171-A59A-DFD8BC4B089C.webp',
+    'BDD40217-C21B-450F-816E-9E64C6A21D1F.webp',
+    '3A39B8C5-A6DA-44BC-A319-14187BE4CF0C.webp',
+    'D6271469-B82B-4293-AC00-6608CA870802.webp',
+    'E744FFDD-AAB5-494F-9E0F-619C424C2693.webp',
+    'F40A833F-28BA-43F8-BEE9-D9FE7C4C19A9.webp',
+    'IMG_2528.JPG',
+    'IMG_2529.JPG',
+    'IMG_2530.JPG',
+    'IMG_2531.JPG',
+    'газпром копия.JPG'
+  ],
+  circus: [
+    '54A2B9AD-00A9-4D7A-AFA6-DFEE3A8F6E23.webp',
+    '1546f4ab-15dc-4aa1-9abd-ccbef5347759.JPG',
+    '28E1CCAB-8A63-405E-8210-A22B7F524B35.webp',
+    '3f5c2cfe-0b93-4811-9a87-f3609a801924.JPG',
+    '0c874e87-de18-448d-abb5-a9be732eba7c.JPG',
+    '556f84e9-115e-47a4-b9f7-bc2e1a1a4857.JPG',
+    '80a3aa52-dd40-4773-a3db-d4837e4ed611.JPG',
+    'F1254678-5B6F-406A-A524-07200D2850AE.webp',
+    'FC2CD6E4-7E4B-4536-B227-83270A8D5BC6.webp',
+    'IMG_2717.png',
+    'IMG_2722.png',
+    'IMG_2723.png',
+    'IMG_2724.png'
+  ],
+  metal: [
+    'metal-add-03.png',
+    'metal-add-01.png',
+    'metal-add-02.png',
+    'metal-add-04.png',
+    'metal-add-05.png',
+    'metal-add-06.png',
+    'metal-add-07.png',
+    '4cc015f1-e96c-46d4-9361-79c5d76ca71a.JPG',
+    '576baccb-1cbe-42b0-b353-9088c1b4dc44.JPG',
+    'IMG_2700.JPG',
+    'IMG_2701.png',
+    'IMG_2702.JPG'
+  ]
+};
+
+function resolveImagePaths(folder, filenames) {
+  const dir = path.join(root, folder);
+  if (!fs.existsSync(dir)) return [];
+  const dirFiles = fs.readdirSync(dir).filter(function (f) { return ok.test(f); });
+  const byLower = {};
+  dirFiles.forEach(function (f) { byLower[f.toLowerCase()] = f; });
+  return filenames
+    .map(function (f) { return byLower[f.toLowerCase()]; })
+    .filter(Boolean)
+    .map(function (f) { return 'images/' + folder + '/' + f; });
+}
 
 const data = projects.map(function (p) {
   const dir = path.join(root, p.folder);
   const exclude = new Set((imageExcludes[p.id] || []).map(function (f) { return f.toLowerCase(); }));
-  const images = fs.existsSync(dir)
-    ? fs.readdirSync(dir).filter(function (f) {
-        return ok.test(f) && !exclude.has(f.toLowerCase());
-      }).sort().map(function (f) {
-        return 'images/' + p.folder + '/' + f;
-      })
-    : [];
-  (imageSwaps[p.id] || []).forEach(function (pair) {
-    if (images.length > Math.max(pair[0], pair[1])) {
-      var tmp = images[pair[0]];
-      images[pair[0]] = images[pair[1]];
-      images[pair[1]] = tmp;
-    }
-  });
+  var images;
+  if (imageOrderOverrides[p.id]) {
+    images = resolveImagePaths(p.folder, imageOrderOverrides[p.id]);
+  } else {
+    images = fs.existsSync(dir)
+      ? fs.readdirSync(dir).filter(function (f) {
+          return ok.test(f) && !exclude.has(f.toLowerCase());
+        }).sort().map(function (f) {
+          return 'images/' + p.folder + '/' + f;
+        })
+      : [];
+    (imageSwaps[p.id] || []).forEach(function (pair) {
+      if (images.length > Math.max(pair[0], pair[1])) {
+        var tmp = images[pair[0]];
+        images[pair[0]] = images[pair[1]];
+        images[pair[1]] = tmp;
+      }
+    });
+  }
   return Object.assign({}, p, { images: images });
 }).filter(function (p) { return p.images.length; });
 

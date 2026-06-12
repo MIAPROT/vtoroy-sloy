@@ -101,23 +101,19 @@ window.PROJECTS_DATA = [
       "1 000 м² за 1,5 месяца"
     ],
     "images": [
-      "images/академия топ граф орлов/9313EF31-1A11-4D3F-8831-7B1034DDF3DB.JPG",
+      "images/академия топ граф орлов/IMG_2062.jpeg",
       "images/академия топ граф орлов/IMG_2055.jpeg",
-      "images/академия топ граф орлов/IMG_2056.jpeg",
       "images/академия топ граф орлов/IMG_2057.jpeg",
       "images/академия топ граф орлов/IMG_2058.jpeg",
       "images/академия топ граф орлов/IMG_2059.jpeg",
       "images/академия топ граф орлов/IMG_2060.jpeg",
-      "images/академия топ граф орлов/IMG_2061.jpeg",
-      "images/академия топ граф орлов/IMG_2062.jpeg",
-      "images/академия топ граф орлов/IMG_2063.jpeg",
+      "images/академия топ граф орлов/9313EF31-1A11-4D3F-8831-7B1034DDF3DB.JPG",
       "images/академия топ граф орлов/IMG_2064.jpeg",
       "images/академия топ граф орлов/IMG_2065.jpg",
       "images/академия топ граф орлов/IMG_2067.jpg",
       "images/академия топ граф орлов/IMG_2068.jpg",
       "images/академия топ граф орлов/IMG_2069.jpg",
       "images/академия топ граф орлов/IMG_2070.jpg",
-      "images/академия топ граф орлов/IMG_2071.jpg",
       "images/академия топ граф орлов/IMG_2072.jpg",
       "images/академия топ граф орлов/IMG_2074.jpg"
     ]
@@ -137,12 +133,12 @@ window.PROJECTS_DATA = [
       "Вывоз мусора"
     ],
     "images": [
-      "images/демонтаж/IMG_6706.jpeg",
+      "images/демонтаж/IMG_6715.jpeg",
       "images/демонтаж/IMG_6707.jpeg",
       "images/демонтаж/IMG_6709.jpeg",
       "images/демонтаж/IMG_6710.jpeg",
       "images/демонтаж/IMG_6712.jpeg",
-      "images/демонтаж/IMG_6715.jpeg",
+      "images/демонтаж/IMG_6706.jpeg",
       "images/демонтаж/IMG_8009.jpeg",
       "images/демонтаж/IMG_8010.jpeg",
       "images/демонтаж/IMG_8011.jpeg",
@@ -164,11 +160,11 @@ window.PROJECTS_DATA = [
       "~3 000 м² за 2 недели"
     ],
     "images": [
-      "images/газпром/3A39B8C5-A6DA-44BC-A319-14187BE4CF0C.webp",
+      "images/газпром/BEE34E22-7687-44E1-8CAA-48F7CF60551E.webp",
       "images/газпром/82F90C8C-CE63-469D-AF2F-D3AECF24B132.webp",
       "images/газпром/8582B189-3836-4171-A59A-DFD8BC4B089C.webp",
       "images/газпром/BDD40217-C21B-450F-816E-9E64C6A21D1F.webp",
-      "images/газпром/BEE34E22-7687-44E1-8CAA-48F7CF60551E.webp",
+      "images/газпром/3A39B8C5-A6DA-44BC-A319-14187BE4CF0C.webp",
       "images/газпром/D6271469-B82B-4293-AC00-6608CA870802.webp",
       "images/газпром/E744FFDD-AAB5-494F-9E0F-619C424C2693.webp",
       "images/газпром/F40A833F-28BA-43F8-BEE9-D9FE7C4C19A9.webp",
@@ -221,11 +217,11 @@ window.PROJECTS_DATA = [
       "~1 500 м²"
     ],
     "images": [
-      "images/санкт-петербургский цирк/0c874e87-de18-448d-abb5-a9be732eba7c.JPG",
+      "images/санкт-петербургский цирк/54A2B9AD-00A9-4D7A-AFA6-DFEE3A8F6E23.webp",
       "images/санкт-петербургский цирк/1546f4ab-15dc-4aa1-9abd-ccbef5347759.JPG",
       "images/санкт-петербургский цирк/28E1CCAB-8A63-405E-8210-A22B7F524B35.webp",
       "images/санкт-петербургский цирк/3f5c2cfe-0b93-4811-9a87-f3609a801924.JPG",
-      "images/санкт-петербургский цирк/54A2B9AD-00A9-4D7A-AFA6-DFEE3A8F6E23.webp",
+      "images/санкт-петербургский цирк/0c874e87-de18-448d-abb5-a9be732eba7c.JPG",
       "images/санкт-петербургский цирк/556f84e9-115e-47a4-b9f7-bc2e1a1a4857.JPG",
       "images/санкт-петербургский цирк/80a3aa52-dd40-4773-a3db-d4837e4ed611.JPG",
       "images/санкт-петербургский цирк/F1254678-5B6F-406A-A524-07200D2850AE.webp",
@@ -277,6 +273,13 @@ window.PROJECTS_DATA = [
       "Короткие сроки"
     ],
     "images": [
+      "images/покраска металлических изделий/metal-add-03.png",
+      "images/покраска металлических изделий/metal-add-01.png",
+      "images/покраска металлических изделий/metal-add-02.png",
+      "images/покраска металлических изделий/metal-add-04.png",
+      "images/покраска металлических изделий/metal-add-05.png",
+      "images/покраска металлических изделий/metal-add-06.png",
+      "images/покраска металлических изделий/metal-add-07.png",
       "images/покраска металлических изделий/4cc015f1-e96c-46d4-9361-79c5d76ca71a.JPG",
       "images/покраска металлических изделий/576baccb-1cbe-42b0-b353-9088c1b4dc44.JPG",
       "images/покраска металлических изделий/IMG_2700.JPG",
