@@ -313,7 +313,10 @@ window.PROJECTS_DATA = [
       "images/произвлдственные помещения/production-add-02.png",
       "images/произвлдственные помещения/production-add-03.png",
       "images/произвлдственные помещения/production-add-04.png",
-      "images/произвлдственные помещения/production-add-05.png"
+      "images/произвлдственные помещения/production-add-05.png",
+      "images/произвлдственные помещения/production-add-06.png",
+      "images/произвлдственные помещения/production-add-07.png",
+      "images/произвлдственные помещения/production-add-08.png"
     ]
   }
 ];
