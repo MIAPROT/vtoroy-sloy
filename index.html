@@ -652,7 +652,6 @@
       background: var(--bg);
     }
     .form-row input:focus, .form-grid input:focus, .form-stack input:focus { outline: none; border-color: var(--accent); }
-    .form-note { margin-top: 12px; font-size: 0.85rem; color: var(--text-secondary); }
     .form-legal {
       margin-top: 10px;
       font-size: 0.75rem;
@@ -666,7 +665,13 @@
       text-underline-offset: 2px;
     }
     .form-legal a:hover { color: var(--accent); }
-    .form-success { margin-top: 12px; font-size: 0.95rem; color: var(--accent); font-weight: 600; }
+    .form-success {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+    .form-success[hidden] { display: none; }
     .form-grid .btn[disabled] { opacity: 0.65; cursor: not-allowed; }
     .form-stack {
       display: flex;
@@ -1134,7 +1139,6 @@
     .final-panel .section-sub { margin: 0 auto 32px; text-align: center; }
     .final-panel .form-grid { margin: 0 auto; max-width: 640px; }
     .final-panel .accent-line { margin-left: auto; margin-right: auto; }
-    .final-panel .form-note { text-align: center; }
 
     /* Footer */
     .footer {
@@ -1553,7 +1557,7 @@
             <button type="submit" class="btn btn--primary">Забронировать выезд замерщика</button>
           </div>
           <p class="form-legal">Отправляя форму, вы соглашаетесь с <a href="/privacy-policy.pdf" target="_blank" rel="noopener">политикой обработки персональных данных</a></p>
-          <p class="form-note">Свяжемся с вами в течение 10 минут</p>
+          <p class="form-success" hidden>Свяжемся с вами в течение 10 минут</p>
         </form>
       </div>
     </div>
@@ -1627,7 +1631,7 @@
               <button type="submit" class="btn btn--primary">Связаться в мессенджере</button>
               <p class="form-legal">Отправляя форму, вы соглашаетесь с <a href="/privacy-policy.pdf" target="_blank" rel="noopener">политикой обработки персональных данных</a></p>
             </div>
-            <p class="form-note">Свяжемся с вами в течение 10 минут</p>
+            <p class="form-success" hidden>Свяжемся с вами в течение 10 минут</p>
           </form>
           <div class="messengers" style="margin-top:20px">
             <a href="https://wa.me/79098444362" target="_blank" rel="noopener" aria-label="WhatsApp">
@@ -1822,7 +1826,7 @@
             <button type="submit" class="btn btn--primary btn--lg">Обсудить ремонт</button>
           </div>
           <p class="form-legal">Отправляя форму, вы соглашаетесь с <a href="/privacy-policy.pdf" target="_blank" rel="noopener">политикой обработки персональных данных</a></p>
-          <p class="form-note">Свяжемся с вами в течение 10 минут</p>
+          <p class="form-success" hidden>Свяжемся с вами в течение 10 минут</p>
         </form>
       </div>
     </div>
@@ -1950,7 +1954,6 @@
         form.addEventListener('submit', function (e) {
           e.preventDefault();
           var btn = form.querySelector('button[type="submit"]');
-          var noteEl = form.querySelector('.form-note');
           var successEl = form.querySelector('.form-success');
           if (!btn || btn.disabled) return;
 
@@ -1978,14 +1981,10 @@
             .then(function (result) {
               if (result.ok && result.data.ok) {
                 form.reset();
-                if (noteEl) noteEl.hidden = true;
-                if (!successEl) {
-                  successEl = document.createElement('p');
-                  successEl.className = 'form-success';
-                  form.appendChild(successEl);
+                if (successEl) {
+                  successEl.textContent = 'Свяжемся с вами в течение 10 минут';
+                  successEl.hidden = false;
                 }
-                successEl.textContent = 'Спасибо! Свяжемся в течение 10 минут';
-                successEl.hidden = false;
                 return;
               }
               alert('Не удалось отправить заявку. Попробуйте позже или позвоните нам.');
