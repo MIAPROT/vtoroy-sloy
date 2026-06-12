@@ -1242,8 +1242,12 @@
       .split, .control-grid, .compare { grid-template-columns: 1fr; }
       .split--reverse { direction: ltr; }
       .control-grid .media {
+        width: 100%;
         aspect-ratio: 16 / 10;
-        max-height: 280px;
+        max-height: none;
+      }
+      .control-grid .media img {
+        object-position: center center;
       }
       .footer__grid { grid-template-columns: 1fr 1fr; }
     }
@@ -1310,9 +1314,13 @@
       .split { gap: 28px; }
       .split .media { aspect-ratio: 4/3; border-radius: var(--radius-lg); }
       .control-grid .media {
+        width: 100%;
         aspect-ratio: 16 / 10;
-        max-height: 220px;
+        max-height: none;
         border-radius: var(--radius-lg);
+      }
+      .control-grid .media img {
+        object-position: center center;
       }
       .control-card { padding: 18px; flex-wrap: wrap; }
 
