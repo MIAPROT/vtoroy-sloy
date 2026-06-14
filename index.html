@@ -666,12 +666,39 @@
     }
     .form-legal a:hover { color: var(--accent); }
     .form-success {
-      margin-top: 12px;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
+      margin-top: 16px;
+      padding: 22px 20px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 85, 0, 0.1);
+      border: 2px solid rgba(255, 85, 0, 0.45);
       text-align: center;
     }
     .form-success[hidden] { display: none; }
+    .form-success__title {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .form-success p {
+      margin: 0 0 8px;
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .form-success p:last-child { margin-bottom: 0; }
+    .form-success a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .form-success a:hover { opacity: 0.85; }
+    .lead-form--sent .form-grid,
+    .lead-form--sent .form-stack,
+    .lead-form--sent .form-legal { display: none; }
     .form-grid .btn[disabled] { opacity: 0.65; cursor: not-allowed; }
     .form-stack {
       display: flex;
@@ -1565,7 +1592,7 @@
             <button type="submit" class="btn btn--primary">Забронировать выезд замерщика</button>
           </div>
           <p class="form-legal">Отправляя форму, вы соглашаетесь с <a href="/privacy-policy.pdf" target="_blank" rel="noopener">политикой обработки персональных данных</a></p>
-          <p class="form-success" hidden>Свяжемся с вами в течение 10 минут</p>
+          <div class="form-success" hidden aria-live="polite"></div>
         </form>
       </div>
     </div>
@@ -1639,7 +1666,7 @@
               <button type="submit" class="btn btn--primary">Связаться в мессенджере</button>
               <p class="form-legal">Отправляя форму, вы соглашаетесь с <a href="/privacy-policy.pdf" target="_blank" rel="noopener">политикой обработки персональных данных</a></p>
             </div>
-            <p class="form-success" hidden>Свяжемся с вами в течение 10 минут</p>
+            <div class="form-success" hidden aria-live="polite"></div>
           </form>
           <div class="messengers" style="margin-top:20px">
             <a href="https://wa.me/79098444362" target="_blank" rel="noopener" aria-label="WhatsApp">
@@ -1834,7 +1861,7 @@
             <button type="submit" class="btn btn--primary btn--lg">Обсудить ремонт</button>
           </div>
           <p class="form-legal">Отправляя форму, вы соглашаетесь с <a href="/privacy-policy.pdf" target="_blank" rel="noopener">политикой обработки персональных данных</a></p>
-          <p class="form-success" hidden>Свяжемся с вами в течение 10 минут</p>
+          <div class="form-success" hidden aria-live="polite"></div>
         </form>
       </div>
     </div>
@@ -1990,8 +2017,12 @@
               if (result.ok && result.data.ok) {
                 form.reset();
                 if (successEl) {
-                  successEl.textContent = 'Свяжемся с вами в течение 10 минут';
+                  successEl.innerHTML = '<strong class="form-success__title">Заявка отправлена</strong>' +
+                    '<p>Свяжемся с вами в течение 10 минут</p>' +
+                    '<p>Или напишите в Telegram: <a href="https://t.me/telamiru" target="_blank" rel="noopener">@telamiru</a></p>';
                   successEl.hidden = false;
+                  form.classList.add('lead-form--sent');
+                  successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
                 return;
               }
