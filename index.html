@@ -58,12 +58,32 @@
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
       line-height: 1.15;
+      text-wrap: balance;
+      hyphens: manual;
+      overflow-wrap: normal;
+      word-break: normal;
     }
     .section-title {
       font-size: clamp(1.35rem, 3vw, 2rem);
       text-transform: uppercase;
       letter-spacing: 0.02em;
       margin-bottom: 12px;
+    }
+    .section-sub,
+    .hero__sub,
+    .hero__note,
+    .compare li,
+    .process__item p,
+    .service-card__body p,
+    .control-card p,
+    .inclusive-card p,
+    .stat__label,
+    .projects-detail__desc,
+    .form-success p {
+      text-wrap: pretty;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+      hyphenate-limit-chars: 6 3 3;
     }
     .section-sub {
       color: var(--text-secondary);
@@ -820,6 +840,7 @@
       text-transform: uppercase;
       letter-spacing: 0.03em;
       cursor: pointer;
+      text-wrap: balance;
       transition: border-color var(--transition), background var(--transition), color var(--transition);
     }
     .projects-tab:hover { border-color: var(--accent); }
@@ -1299,7 +1320,7 @@
         background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.75) 70%);
       }
       .hero-panel__content { padding: 24px 18px 28px; max-width: 100%; }
-      .hero-panel h1 { font-size: 1.25rem; word-wrap: break-word; overflow-wrap: break-word; }
+      .hero-panel h1 { font-size: 1.25rem; }
       .hero__sub { font-size: 0.92rem; margin-bottom: 20px; }
       .hero__eyebrow { font-size: 0.65rem; letter-spacing: 0.08em; flex-wrap: wrap; }
       .hero__actions { flex-direction: column; align-items: stretch; }
@@ -1321,7 +1342,7 @@
       .projects-photo__slide img { max-height: 260px; }
       .badge-guarantee { display: none; }
 
-      .section-title { font-size: 1.2rem; hyphens: auto; }
+      .section-title { font-size: 1.2rem; }
       .section-sub { font-size: 0.95rem; margin-bottom: 28px; }
 
       .cards-3, .cards-4, .process, .inclusive-bento, .bento {
@@ -1329,7 +1350,7 @@
         gap: 16px;
       }
       .bento__item { padding: 22px 20px; }
-      .stat__num { font-size: 2rem; word-break: break-word; }
+      .stat__num { font-size: 2rem; }
 
       .compare { margin-top: 32px; gap: 14px; }
       .compare__col { padding: 22px 18px; }
@@ -1453,13 +1474,13 @@
         <div class="hero-panel__overlay"></div>
         <div class="hero-panel__content">
           <p class="hero__eyebrow">Санкт-Петербург · Ленинградская область</p>
-          <div class="badge-guarantee"><span class="dot"></span> Даём гарантию на работы</div>
-          <h1>Ремонт коммерческих помещений точно в срок и без вашего участия</h1>
-          <p class="hero__sub">Берем на себя все этапы: от закупки материалов до сдачи объекта. Гарантируем соблюдение графика по договору и избавляем вас от контроля стройки.</p>
+          <div class="badge-guarantee"><span class="dot"></span> Даём гарантию на&nbsp;работы</div>
+          <h1>Ремонт коммерческих помещений точно в&nbsp;срок и&nbsp;без вашего участия</h1>
+          <p class="hero__sub">Берём на&nbsp;себя все этапы: от&nbsp;закупки материалов до&nbsp;сдачи объекта. Гарантируем соблюдение графика по&nbsp;договору и&nbsp;избавляем вас от&nbsp;контроля стройки.</p>
           <div class="hero__actions">
-            <button type="button" class="btn btn--primary btn--lg" data-scroll="#form-1">Приедем сегодня и рассчитаем стоимость</button>
+            <button type="button" class="btn btn--primary btn--lg" data-scroll="#form-1">Приедем сегодня и&nbsp;рассчитаем стоимость</button>
           </div>
-          <p class="hero__note">это абсолютно бесплатно и ни к чему вас не обязывает</p>
+          <p class="hero__note">это абсолютно бесплатно и&nbsp;ни&nbsp;к&nbsp;чему вас не&nbsp;обязывает</p>
           <div class="hero-contacts">
             <a href="tel:+79098444362" class="hero-contact-phone">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -1493,23 +1514,23 @@
   <section class="section--white">
     <div class="container fade-in">
       <h2 class="section-title">Как мы работаем</h2>
-      <p class="section-sub">От заявки до старта ремонта — прозрачно и без лишних встреч</p>
+      <p class="section-sub">От&nbsp;заявки до&nbsp;старта ремонта&nbsp;— прозрачно и&nbsp;без лишних встреч</p>
       <div class="process">
         <div class="process__item">
           <h4>Заявка</h4>
-          <p>Оставляете телефон или пишете в мессенджер — перезваниваем за 10 минут</p>
+          <p>Оставляете телефон или&nbsp;пишете в&nbsp;мессенджер&nbsp;— перезваниваем за&nbsp;10&nbsp;минут</p>
         </div>
         <div class="process__item">
-          <h4>Выезд на объект</h4>
-          <p>Бесплатный замер и расчёт сметы, которую зафиксируем в договоре</p>
+          <h4>Выезд на&nbsp;объект</h4>
+          <p>Бесплатный замер и&nbsp;расчёт сметы, которую зафиксируем в&nbsp;договоре</p>
         </div>
         <div class="process__item">
           <h4>Договор</h4>
-          <p>Чёткие сроки, этапы оплаты после приёмки работ, без доплат</p>
+          <p>Чёткие сроки, этапы оплаты после приёмки работ, без&nbsp;доплат</p>
         </div>
         <div class="process__item">
           <h4>Старт работ</h4>
-          <p>Можем начать на следующий день после подписания договора</p>
+          <p>Можем начать на&nbsp;следующий день после подписания договора</p>
         </div>
       </div>
     </div>
@@ -1520,7 +1541,7 @@
     <div class="container">
       <div class="fade-in">
         <h2 class="section-title">Закрываем главные страхи перед ремонтом</h2>
-        <p class="section-sub">Три ситуации, из-за которых бизнес откладывает запуск — и как мы их решаем</p>
+        <p class="section-sub">Три ситуации, из-за которых бизнес откладывает запуск&nbsp;— и&nbsp;как мы&nbsp;их&nbsp;решаем</p>
       </div>
       <div class="cards-3">
         <article class="service-card fade-in">
@@ -1529,7 +1550,7 @@
           </div>
           <div class="service-card__body">
             <h3>Срывают сроки?</h3>
-            <p>Прописываем чёткие сроки в договоре. Если не успеваем — усиливаем бригады и выходим в ночь и выходные</p>
+            <p>Прописываем чёткие сроки в&nbsp;договоре. Если не&nbsp;успеваем&nbsp;— усиливаем бригады и&nbsp;выходим в&nbsp;ночь и&nbsp;выходные</p>
             <a href="#form-1" class="link-more"><span class="dot dot--sq"></span> Подробнее</a>
           </div>
         </article>
@@ -1539,7 +1560,7 @@
           </div>
           <div class="service-card__body">
             <h3>Берут аванс и пропадают?</h3>
-            <p>Вы не платите наперёд. Только после приёмки каждого этапа работ</p>
+            <p>Вы не&nbsp;платите наперёд. Только после приёмки каждого этапа работ</p>
             <a href="#form-1" class="link-more"><span class="dot dot--sq"></span> Подробнее</a>
           </div>
         </article>
@@ -1549,7 +1570,7 @@
           </div>
           <div class="service-card__body">
             <h3>Непредвиденные расходы?</h3>
-            <p>Фиксируем смету в договоре. Ноль доплат сверх утверждённой суммы</p>
+            <p>Фиксируем смету в&nbsp;договоре. Ноль доплат сверх утверждённой суммы</p>
             <a href="#form-1" class="link-more"><span class="dot dot--sq"></span> Подробнее</a>
           </div>
         </article>
@@ -1559,19 +1580,19 @@
         <div class="compare__col compare__col--bad">
           <div class="compare__label">Обычный подрядчик</div>
           <ul>
-            <li>Сроки «на глаз», без ответственности в договоре</li>
+            <li>Сроки «на&nbsp;глаз», без&nbsp;ответственности в&nbsp;договоре</li>
             <li>Аванс 50–100%, потом пропадают</li>
-            <li>Смета «примерная», доплаты на каждом этапе</li>
+            <li>Смета «примерная», доплаты на&nbsp;каждом этапе</li>
             <li>Вы сами контролируете бригаду</li>
           </ul>
         </div>
         <div class="compare__col compare__col--good">
           <div class="compare__label">ВТОРОЙ СЛОЙ</div>
           <ul>
-            <li>Сроки в договоре, усиливаем бригады при необходимости</li>
+            <li>Сроки в&nbsp;договоре, усиливаем бригады при&nbsp;необходимости</li>
             <li>Оплата только после приёмки этапа</li>
-            <li>Фиксированная смета, 0 ₽ доплат</li>
-            <li>Бригадир, прораб и ежедневные отчёты</li>
+            <li>Фиксированная смета, 0&nbsp;₽ доплат</li>
+            <li>Бригадир, прораб и&nbsp;ежедневные отчёты</li>
           </ul>
         </div>
       </div>
@@ -1583,13 +1604,13 @@
     <div class="container fade-in">
       <div class="form-panel">
         <div class="accent-line"></div>
-        <h2 class="section-title">Бесплатно приедем и зафиксируем смету в договоре</h2>
-        <p class="section-sub">Отправим коммерческое предложение с материалами и точной стоимостью работ</p>
+        <h2 class="section-title">Бесплатно приедем и&nbsp;зафиксируем смету в&nbsp;договоре</h2>
+        <p class="section-sub">Отправим коммерческое предложение с&nbsp;материалами и&nbsp;точной стоимостью работ</p>
         <form class="lead-form" data-form-name="Выезд замерщика">
           <div class="form-grid">
             <input type="text" name="name" placeholder="Ваше имя" required autocomplete="name">
             <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required pattern="[\d\s\+\-\(\)]{10,}" autocomplete="tel">
-            <button type="submit" class="btn btn--primary">Забронировать выезд замерщика</button>
+            <button type="submit" class="btn btn--primary">Забронировать выезд&nbsp;замерщика</button>
           </div>
           <p class="form-legal">Отправляя форму, вы соглашаетесь с <a href="/privacy-policy.pdf" target="_blank" rel="noopener">политикой обработки персональных данных</a></p>
           <div class="form-success" hidden aria-live="polite"></div>
@@ -1606,8 +1627,8 @@
           <img src="images/trust-office.jpg" alt="Офис после ремонта — ВТОРОЙ СЛОЙ" width="900" height="620" loading="lazy">
         </div>
         <div>
-          <h2 class="section-title">Прогнозируемый ремонт помещения для вашего бизнеса — бюджет и сроки прописаны в договоре</h2>
-          <p class="section-sub" style="margin-bottom:0">Мы понимаем, как вам важно запустить бизнес как можно раньше, без простоев и переплат за аренду. <span class="text-highlight">Поэтому, если мы не успеваем — усиливаем бригады, выходим работать в ночь и в выходные дни.</span></p>
+          <h2 class="section-title">Прогнозируемый ремонт помещения для&nbsp;вашего бизнеса&nbsp;— бюджет и&nbsp;сроки прописаны в&nbsp;договоре</h2>
+          <p class="section-sub" style="margin-bottom:0">Мы понимаем, как вам важно запустить бизнес как можно раньше, без&nbsp;простоев и&nbsp;переплат за&nbsp;аренду. <span class="text-highlight">Поэтому, если мы&nbsp;не&nbsp;успеваем&nbsp;— усиливаем бригады, выходим работать в&nbsp;ночь и&nbsp;в&nbsp;выходные дни.</span></p>
         </div>
       </div>
     </div>
@@ -1616,8 +1637,8 @@
   <!-- CONTROL -->
   <section class="section--white">
     <div class="container fade-in">
-      <h2 class="section-title">Вам не придётся контролировать рабочих</h2>
-      <p class="section-sub">Решаем проблемы без вашего вмешательства и сдаём готовый объект</p>
+      <h2 class="section-title">Вам не&nbsp;придётся контролировать рабочих</h2>
+      <p class="section-sub">Решаем проблемы без&nbsp;вашего вмешательства и&nbsp;сдаём готовый объект</p>
       <div class="control-grid">
         <div class="media">
           <img src="images/control-supervisor.jpg" alt="Прораб контролирует работу бригады на объекте" width="800" height="600" loading="lazy">
@@ -1627,21 +1648,21 @@
             <span class="control-card__num">01</span>
             <div>
               <h4>Ежедневный отчёт</h4>
-              <p>Фото и описание каждого выполненного этапа — в мессенджер или почту</p>
+              <p>Фото и&nbsp;описание каждого выполненного этапа&nbsp;— в&nbsp;мессенджер или&nbsp;почту</p>
             </div>
           </div>
           <div class="control-card">
             <span class="control-card__num">02</span>
             <div>
-              <h4>Бригадир и прораб</h4>
-              <p>На объекте всегда ответственный — вы знаете, к кому обратиться</p>
+              <h4>Бригадир и&nbsp;прораб</h4>
+              <p>На&nbsp;объекте всегда ответственный&nbsp;— вы&nbsp;знаете, к&nbsp;кому обратиться</p>
             </div>
           </div>
           <div class="control-card">
             <span class="control-card__num">03</span>
             <div>
               <h4>Видеонаблюдение</h4>
-              <p>По запросу ставим камеры — смотрите процесс удалённо</p>
+              <p>По&nbsp;запросу ставим камеры&nbsp;— смотрите процесс удалённо</p>
             </div>
           </div>
         </div>
@@ -1657,8 +1678,8 @@
           <img src="images/calc-by-photo.png" alt="Прораб с чертежами на объекте — расчёт по фото или техзаданию" width="900" height="620" loading="lazy">
         </div>
         <div>
-          <h2 class="section-title">Расчёт по фото или техзаданию</h2>
-          <p class="section-sub">Пришлите фото объекта или дизайн-проект — дадим предварительную стоимость без встречи</p>
+          <h2 class="section-title">Расчёт по&nbsp;фото или&nbsp;техзаданию</h2>
+          <p class="section-sub">Пришлите фото объекта или&nbsp;дизайн-проект&nbsp;— дадим предварительную стоимость без&nbsp;встречи</p>
           <form class="lead-form" data-form-name="Расчёт по фото">
             <div class="form-stack">
               <input type="text" name="name" placeholder="Ваше имя" required autocomplete="name">
@@ -1692,9 +1713,9 @@
           <img src="images/about.jpg" alt="Команда ВТОРОЙ СЛОЙ" width="800" height="1000" loading="lazy">
         </div>
         <div>
-          <h2 class="section-title">Мы — люди, и делаем для людей</h2>
-          <p class="section-sub" style="margin-bottom:16px">Мы не идеальные роботы из рекламы. Прошли через сложные стройки и научились главному: не бросать начатое и держать слово. С нами не нужно «воевать» за результат — мы на вашей стороне.</p>
-          <p style="font-size:0.9rem;color:var(--text-secondary);font-style:italic;margin-bottom:24px">Никогда не навязываем лишние услуги — подбираем решение под задачу</p>
+          <h2 class="section-title">Мы&nbsp;— люди, и&nbsp;делаем для&nbsp;людей</h2>
+          <p class="section-sub" style="margin-bottom:16px">Мы&nbsp;не&nbsp;идеальные роботы из&nbsp;рекламы. Прошли через сложные стройки и&nbsp;научились главному: не&nbsp;бросать начатое и&nbsp;держать слово. С&nbsp;нами не&nbsp;нужно «воевать» за&nbsp;результат&nbsp;— мы&nbsp;на&nbsp;вашей стороне.</p>
+          <p style="font-size:0.9rem;color:var(--text-secondary);font-style:italic;margin-bottom:24px">Никогда не&nbsp;навязываем лишние услуги&nbsp;— подбираем решение под&nbsp;задачу</p>
           <button type="button" class="btn btn--primary" data-scroll="#form-1">Получить консультацию</button>
         </div>
       </div>
@@ -1704,15 +1725,15 @@
   <!-- ADVANTAGES -->
   <section class="section--soft">
     <div class="container">
-      <h2 class="section-title fade-in">Почему с нами без сюрпризов</h2>
+      <h2 class="section-title fade-in">Почему с&nbsp;нами без&nbsp;сюрпризов</h2>
       <div class="cards-4">
         <article class="service-card fade-in">
           <div class="media">
             <img src="images/advantage-brigade.jpg" alt="Мастер на объекте — контроль качества работ" width="500" height="375" loading="lazy">
           </div>
           <div class="service-card__body">
-            <h3>Пропадать — не наш стиль</h3>
-            <p>Ответственность за каждого мастера. Вы знаете, кто и когда на объекте.</p>
+            <h3>Пропадать&nbsp;— не&nbsp;наш стиль</h3>
+            <p>Ответственность за&nbsp;каждого мастера. Вы&nbsp;знаете, кто и&nbsp;когда на&nbsp;объекте.</p>
             <a href="#about" class="link-more"><span class="dot dot--sq"></span> Подробнее</a>
           </div>
         </article>
@@ -1722,7 +1743,7 @@
           </div>
           <div class="service-card__body">
             <h3>Опыт, проверенный делом</h3>
-            <p>6 бригад, средний стаж 5 лет. Мы уже прошли через всё.</p>
+            <p>6&nbsp;бригад, средний стаж 5&nbsp;лет. Мы&nbsp;уже прошли через всё.</p>
             <a href="#works" class="link-more"><span class="dot dot--sq"></span> Подробнее</a>
           </div>
         </article>
@@ -1732,7 +1753,7 @@
           </div>
           <div class="service-card__body">
             <h3>Технологии превыше всего</h3>
-            <p>Соблюдаем этапы и нормативы — без переделок.</p>
+            <p>Соблюдаем этапы и&nbsp;нормативы&nbsp;— без&nbsp;переделок.</p>
             <a href="#form-1" class="link-more"><span class="dot dot--sq"></span> Подробнее</a>
           </div>
         </article>
@@ -1741,8 +1762,8 @@
             <img src="images/advantage-masters.jpg" alt="Мастера ВТОРОЙ СЛОЙ на объекте" width="500" height="375" loading="lazy">
           </div>
           <div class="service-card__body">
-            <h3>Любая сложность — решаема</h3>
-            <p>Привлечём узкопрофильных специалистов под нестандартные задачи.</p>
+            <h3>Любая сложность&nbsp;— решаема</h3>
+            <p>Привлечём узкопрофильных специалистов под&nbsp;нестандартные задачи.</p>
             <a href="#form-1" class="link-more"><span class="dot dot--sq"></span> Подробнее</a>
           </div>
         </article>
@@ -1764,7 +1785,7 @@
           <div class="stat__label">м² отремонтированных площадей</div>
         </div>
         <div class="bento__item bento__item--accent">
-          <div class="stat__num">0 ₽</div>
+          <div class="stat__num">0&nbsp;₽</div>
           <div class="stat__label">доплат сверх утверждённой сметы</div>
         </div>
         <div class="bento__item">
@@ -1776,7 +1797,7 @@
       <div class="projects-gallery fade-in" id="projects">
         <div class="projects-gallery__head">
           <h2 class="section-title">Наши проекты</h2>
-          <p class="section-sub">Выберите объект — фотографии и описание обновятся</p>
+          <p class="section-sub">Выберите объект&nbsp;— фотографии и&nbsp;описание обновятся</p>
         </div>
         <div class="projects-tabs" id="projects-tabs" role="tablist" aria-label="Список проектов"></div>
         <div class="projects-body">
@@ -1805,7 +1826,7 @@
   <!-- ALL INCLUSIVE -->
   <section class="section--soft">
     <div class="container fade-in">
-      <h2 class="section-title">Берём все заботы на себя</h2>
+      <h2 class="section-title">Берём все заботы на&nbsp;себя</h2>
       <div class="inclusive-bento">
         <div class="inclusive-card">
           <div class="inclusive-card__icon">
@@ -1813,7 +1834,7 @@
           </div>
           <div>
             <h4>Никаких скрытых платежей</h4>
-            <p>Подробная смета, зафиксированная в договоре</p>
+            <p>Подробная смета, зафиксированная в&nbsp;договоре</p>
           </div>
         </div>
         <div class="inclusive-card">
@@ -1822,7 +1843,7 @@
           </div>
           <div>
             <h4>Честная закупка</h4>
-            <p>Петрович, Леруа Мерлен — без наценки на материалы</p>
+            <p>Петрович, Леруа Мерлен&nbsp;— без&nbsp;наценки на&nbsp;материалы</p>
           </div>
         </div>
         <div class="inclusive-card">
@@ -1830,7 +1851,7 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
           </div>
           <div>
-            <h4>Контроль на каждом этапе</h4>
+            <h4>Контроль на&nbsp;каждом этапе</h4>
             <p>Принимаете работу поэтапно</p>
           </div>
         </div>
@@ -1853,7 +1874,7 @@
       <div class="final-panel">
         <div class="accent-line"></div>
         <h2 class="section-title">Давайте обсудим ваш проект</h2>
-        <p class="section-sub">Бесплатный выезд и расчёт сметы. Расчёт сегодня, договор завтра, старт — на следующий день.</p>
+        <p class="section-sub">Бесплатный выезд и&nbsp;расчёт сметы. Расчёт сегодня, договор завтра, старт&nbsp;— на&nbsp;следующий день.</p>
         <form class="lead-form" data-form-name="Финальная форма">
           <div class="form-grid">
             <input type="text" name="name" placeholder="Ваше имя" required autocomplete="name">
@@ -1932,6 +1953,15 @@
       document.querySelectorAll('[data-messenger="max"]').forEach(function (el) {
         el.href = MAX_LINK;
       });
+
+      function ruTypo(text) {
+        if (!text) return '';
+        var short = 'а|и|о|у|в|с|к|но|ни|на|не|до|за|из|от|по|при|для|без|над|под|про|со|во|об|ко|то|же|ли|бы|как|что|или|их|мы|вы';
+        return String(text)
+          .replace(new RegExp('\\s(' + short + ')\\s', 'gi'), '\u00A0$1\u00A0')
+          .replace(/\s—\s/g, '\u00A0— ')
+          .replace(/(\d[\d\s]*)\s+(₽|м²|м2|лет|дней|дня|минут)/g, '$1\u00A0$2');
+      }
 
       var header = document.getElementById('header');
       var burger = document.getElementById('burger');
@@ -2018,7 +2048,7 @@
                 form.reset();
                 if (successEl) {
                   successEl.innerHTML = '<strong class="form-success__title">Заявка отправлена</strong>' +
-                    '<p>Свяжемся с вами в течение 10 минут</p>';
+                    '<p>' + ruTypo('Свяжемся с вами в течение 10 минут') + '</p>';
                   successEl.hidden = false;
                   form.classList.add('lead-form--sent');
                   successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -2090,7 +2120,7 @@
             var btn = document.createElement('button');
             btn.type = 'button';
             btn.className = 'projects-tab' + (i === projectIndex ? ' projects-tab--active' : '');
-            btn.textContent = project.tab;
+            btn.textContent = ruTypo(project.tab);
             btn.setAttribute('role', 'tab');
             btn.setAttribute('aria-selected', i === projectIndex ? 'true' : 'false');
             btn.addEventListener('click', function () { selectProject(i); });
@@ -2108,17 +2138,17 @@
 
         function renderDetail(project) {
           var highlights = (project.highlights || []).map(function (item) {
-            return '<span class="projects-detail__tag">' + item + '</span>';
+            return '<span class="projects-detail__tag">' + ruTypo(item) + '</span>';
           }).join('');
 
           detailEl.innerHTML =
-            '<h3>' + project.title + '</h3>' +
+            '<h3>' + ruTypo(project.title) + '</h3>' +
             '<div class="projects-detail__meta">' +
-              '<span class="projects-detail__chip">' + project.type + '</span>' +
-              '<span class="projects-detail__chip">' + project.area + '</span>' +
-              '<span class="projects-detail__chip">Срок: ' + project.duration + '</span>' +
+              '<span class="projects-detail__chip">' + ruTypo(project.type) + '</span>' +
+              '<span class="projects-detail__chip">' + ruTypo(project.area) + '</span>' +
+              '<span class="projects-detail__chip">Срок: ' + ruTypo(project.duration) + '</span>' +
             '</div>' +
-            '<p class="projects-detail__desc">' + project.desc + '</p>' +
+            '<p class="projects-detail__desc">' + ruTypo(project.desc) + '</p>' +
             (highlights ? '<div class="projects-detail__highlights">' + highlights + '</div>' : '');
         }
 
